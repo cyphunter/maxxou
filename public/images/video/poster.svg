@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Bande-annonce — visuel à remplacer">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#15203f"/>
+      <stop offset="1" stop-color="#0b1020"/>
+    </linearGradient>
+    <radialGradient id="spot" cx="50%" cy="0%" r="70%">
+      <stop offset="0" stop-color="rgba(227,175,59,0.22)"/>
+      <stop offset="60%" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.5" fill="rgba(255,255,255,0.05)"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#dots)"/>
+  <rect width="1600" height="900" fill="url(#spot)"/>
+  <rect x="32" y="32" width="1536" height="836" fill="none" stroke="rgba(227,175,59,0.45)" stroke-width="1.5" rx="32"/>
+  <circle cx="800" cy="421" r="99" fill="rgba(227,175,59,0.95)"/>
+  <path d="M 768.32 376.45 L 849.5 421 L 768.32 465.55 Z" fill="#10182f"/>
+  <text x="800" y="534.5" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="65" fill="#f3ecde">Bande-annonce</text>
+  <text x="800" y="586.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="29" letter-spacing="2" fill="rgba(243,236,222,0.62)">VIDÉO À VENIR</text>
+  <text x="800" y="848.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" letter-spacing="3" fill="rgba(227,175,59,0.7)">VISUEL À REMPLACER · 1600×900</text>
+</svg>

@@ -1,0 +1,34 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "maxou",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-05-05",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "workers_dev": true,
+
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".open-next/assets"
+  },
+
+  "observability": {
+    "enabled": true
+  },
+
+  // ─── Showcase pur (portfolio) ────────────────────────────────────────
+  // Pas de D1 / R2 / KV : aucune donnée persistée, médias bundlés dans
+  // public/. Le formulaire de contact passe par une Server Action + Resend
+  // (clé en secret). Si un besoin DB apparaît, réintroduire le binding D1
+  // partagé "freelance-shared" + préfixe SITE_ID (cf. CLAUDE.md §2).
+
+  // ─── Variables d'environnement publiques ─────────────────────────────
+  "vars": {
+    "NEXT_PUBLIC_SITE_URL": "https://maxou-officiel.fr",
+    "SITE_ID": "maxou"
+  }
+
+  // ─── Secrets (NE PAS METTRE EN CLAIR ICI) ────────────────────────────
+  // wrangler secret put RESEND_API_KEY
+  // (optionnel) wrangler secret put CONTACT_RECIPIENT_EMAIL
+  // (optionnel) wrangler secret put NEWSLETTER_RECIPIENT_EMAIL
+}
