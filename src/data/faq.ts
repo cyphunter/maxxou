@@ -12,12 +12,12 @@ export const faq: readonly FaqEntry[] = [
   {
     question: "C'est quoi, la « thérapie des parties » ?",
     answer:
-      "C'est une approche de la connaissance de soi selon laquelle nous sommes habités par plusieurs « parts » — le critique, l'anxieux, l'enfant, le protecteur… Plutôt que de les combattre, on apprend à les écouter. Maxou s'en empare avec humour : aucun prérequis pour comprendre, tout passe par le rire.",
+      "C'est une approche de la connaissance de soi selon laquelle nous sommes habités par plusieurs « parts » — le critique, l'anxieux, l'enfant, le protecteur… Plutôt que de les combattre, on apprend à les écouter. Maxxou s'en empare avec humour : aucun prérequis pour comprendre, tout passe par le rire.",
   },
   {
     question: "C'est un spectacle ou une séance de thérapie ?",
     answer:
-      "Un spectacle d'humour, avant tout. On vient pour rire. La thérapie des parties est la matière première, pas un soin : Maxou est humoriste et improvisateur, pas thérapeute. Beaucoup repartent simplement plus légers — et avec un autre regard sur eux-mêmes.",
+      "Un spectacle d'humour, avant tout. On vient pour rire. La thérapie des parties est la matière première, pas un soin : Maxxou est humoriste et improvisateur, pas thérapeute. Beaucoup repartent simplement plus légers — et avec un autre regard sur eux-mêmes.",
   },
   {
     question: "Faut-il s'y connaître en développement personnel ?",

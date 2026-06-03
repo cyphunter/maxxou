@@ -14,7 +14,7 @@ export function Footer() {
         {/* Bloc haut : signature + CTA */}
         <div className="grid gap-12 border-b border-ivory/10 py-16 lg:grid-cols-12 lg:py-20">
           <div className="lg:col-span-6">
-            <p className="eyebrow eyebrow--light">Maxou Officiel</p>
+            <p className="eyebrow eyebrow--light">Maxxou Officiel</p>
             <p className="fluid-h3 mt-5 max-w-md font-display text-ivory">
               Tous les personnages dans votre tête montent enfin{" "}
               <span className="italic-display text-gold-300">sur scène</span>.

@@ -12,7 +12,7 @@ import { ScrollReveal } from "@/components/motion/scroll-reveal";
 export const metadata: Metadata = buildMetadata({
   title: "Contact",
   description:
-    "Contactez Maxou Officiel : réservation et programmation du spectacle, interventions et ateliers, partenariats et presse. Lyon, Paris et en tournée.",
+    "Contactez Maxxou Officiel : réservation et programmation du spectacle, interventions et ateliers, partenariats et presse. Lyon, Paris et en tournée.",
   path: "/contact",
 });
 

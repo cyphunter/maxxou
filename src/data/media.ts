@@ -1,7 +1,7 @@
 /**
  * Chemins centralisés des images du site.
  *
- * Les photos de scène (scene-01..04) sont de VRAIES photos de Maxou en
+ * Les photos de scène (scene-01..04) sont de VRAIES photos de Maxxou en
  * représentation (noir & blanc, format portrait 4:5). Les visuels manquants
  * (personnages, poster vidéo) restent des placeholders SVG générés
  * (`npm run gen-placeholders`), à remplacer quand le client fournit le reste.
@@ -34,28 +34,28 @@ export const galerie: readonly GalerieItem[] = [
   {
     id: "g1",
     src: "/images/scene/scene-01.jpg",
-    alt: "Maxou au micro sous les projecteurs, enseigne « Le Fieald » en fond de scène",
+    alt: "Maxxou au micro sous les projecteurs, enseigne « Le Fieald » en fond de scène",
     width: 3277,
     height: 4096,
   },
   {
     id: "g2",
     src: "/images/scene/scene-02.jpg",
-    alt: "Maxou en pied sur scène, sourire et micro en main",
+    alt: "Maxxou en pied sur scène, sourire et micro en main",
     width: 3277,
     height: 4096,
   },
   {
     id: "g3",
     src: "/images/scene/scene-03.jpg",
-    alt: "Maxou en pleine improvisation, le regard tourné vers la salle",
+    alt: "Maxxou en pleine improvisation, le regard tourné vers la salle",
     width: 3277,
     height: 4096,
   },
   {
     id: "g4",
     src: "/images/scene/scene-04.jpg",
-    alt: "Maxou au micro dans une ambiance feutrée, lumières de scène diffuses",
+    alt: "Maxxou au micro dans une ambiance feutrée, lumières de scène diffuses",
     width: 3277,
     height: 4096,
   },

@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/site-config";
 export default function robots(): MetadataRoute.Robots {
   const base = siteConfig.url.replace(/\/+$/, "");
   const isProd =
-    process.env.NEXT_PUBLIC_ENV === "production" || base.includes("maxou-officiel.fr");
+    process.env.NEXT_PUBLIC_ENV === "production" || base.includes("maxxou-officiel.fr");
 
   // En staging / preview (workers.dev) : désindexer tout.
   if (!isProd) {

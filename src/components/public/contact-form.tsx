@@ -30,7 +30,7 @@ export function ContactForm({ defaultRequestType }: { defaultRequestType?: Reque
       organisation: String(formData.get("organisation") ?? ""),
       message: String(formData.get("message") ?? ""),
       consent: formData.get("consent") === "on",
-      maxou_hp: String(formData.get("maxou_hp") ?? ""),
+      maxxou_hp: String(formData.get("maxxou_hp") ?? ""),
     } as unknown as ContactInput;
 
     setStatus({ kind: "submitting" });
@@ -72,7 +72,7 @@ export function ContactForm({ defaultRequestType }: { defaultRequestType?: Reque
   return (
     <form action={handleSubmit} className="space-y-5" noValidate>
       {/* Honeypot anti-spam (caché) */}
-      <input type="hidden" name="maxou_hp" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+      <input type="hidden" name="maxxou_hp" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
       <div className="grid gap-5 sm:grid-cols-2">
         <Field

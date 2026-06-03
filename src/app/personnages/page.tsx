@@ -28,7 +28,7 @@ export const metadata: Metadata = buildMetadata({
 const itemListSchema: WithContext<ItemList> = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Les personnages du spectacle de Maxou Officiel",
+  name: "Les personnages du spectacle de Maxxou Officiel",
   description:
     "La troupe intérieure : chaque personnage incarne une part de nous-mêmes, inspirée de la thérapie des parties.",
   numberOfItems: personnages.length,
@@ -79,7 +79,7 @@ export default function PersonnagesPage() {
                 </p>
                 <p>
                   La «&nbsp;thérapie des parties&nbsp;» propose d&apos;arrêter de les faire taire
-                  pour apprendre, doucement, à les écouter. Sur scène, Maxou leur donne enfin un
+                  pour apprendre, doucement, à les écouter. Sur scène, Maxxou leur donne enfin un
                   corps, une voix et un costume. On rit de les reconnaître — parce qu&apos;au fond,
                   on les connaît tous très bien.
                 </p>

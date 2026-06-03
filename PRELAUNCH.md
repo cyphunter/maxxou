@@ -1,4 +1,4 @@
-# Checklist pré-livraison — Maxou Officiel
+# Checklist pré-livraison — Maxxou Officiel
 
 Site vitrine (showcase, sans base de données). À cocher avant mise en ligne.
 
@@ -6,7 +6,7 @@ Site vitrine (showcase, sans base de données). À cocher avant mise en ligne.
 
 - [ ] `src/lib/site-config.ts` : domaine réel, email, **lien Instagram** + handle, slogans, mentions légales (raison sociale / statut / SIRET), directeur de publication
 - [ ] `src/data/dates.ts` : vraies dates de tournée (et `ticketUrl` des billetteries)
-- [ ] `src/data/personnages.ts` : noms/descriptions validés avec Maxou
+- [ ] `src/data/personnages.ts` : noms/descriptions validés avec Maxxou
 - [ ] `src/data/temoignages.ts` : vrais avis (avec accord) — retirer les placeholders
 - [ ] Vraies images déposées dans `public/images/` (remplacent les SVG placeholders)
 - [ ] Vidéo : fichier dans `public/videos/` + `siteConfig.video.src` renseigné (sinon l'emplacement « à venir » reste affiché)
@@ -63,7 +63,7 @@ Site vitrine (showcase, sans base de données). À cocher avant mise en ligne.
 
 - [ ] NS pointe vers Cloudflare · A/CNAME @ et www → Workers (proxy ON)
 - [ ] SSL/TLS « Full (strict) » · cert valide
-- [ ] Email forwarding `contact@<domaine>` → boîte de Maxou (Cloudflare Email Routing)
+- [ ] Email forwarding `contact@<domaine>` → boîte de Maxxou (Cloudflare Email Routing)
 
 ## Responsive & cross-browser
 

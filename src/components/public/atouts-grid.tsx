@@ -20,7 +20,7 @@ const ICONS: Record<string, LucideIcon> = {
 };
 
 /**
- * Grille « pourquoi faire confiance à Maxou ».
+ * Grille « pourquoi faire confiance à Maxxou ».
  * `tone="dark"` pour un fond sombre (bleu nuit / bordeaux).
  */
 export function AtoutsGrid({ tone = "light" }: { tone?: "light" | "dark" }) {

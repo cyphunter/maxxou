@@ -1,5 +1,5 @@
 /**
- * Ce que propose Maxou : le spectacle, les interventions, les partenariats.
+ * Ce que propose Maxxou : le spectacle, les interventions, les partenariats.
  * `icon` = clé mappée vers une icône lucide dans `service-card.tsx`.
  */
 
@@ -22,9 +22,9 @@ export const services: readonly Service[] = [
     slug: "spectacle",
     title: "Le seul-en-scène",
     summary:
-      "Le spectacle original de Maxou : une heure et quart où vos personnages intérieurs montent enfin sur scène.",
+      "Le spectacle original de Maxxou : une heure et quart où vos personnages intérieurs montent enfin sur scène.",
     description:
-      "Un seul-en-scène mêlant humour, improvisation et thérapie des parties. Maxou incarne tour à tour le Critique, l'Anxieux, le Perfectionniste… et nous fait rire de nos mécanismes les plus intimes. Idéal pour les salles, théâtres, cafés-théâtres et festivals.",
+      "Un seul-en-scène mêlant humour, improvisation et thérapie des parties. Maxxou incarne tour à tour le Critique, l'Anxieux, le Perfectionniste… et nous fait rire de nos mécanismes les plus intimes. Idéal pour les salles, théâtres, cafés-théâtres et festivals.",
     icon: "drama",
     points: [
       "Format ~75 min, tout public (dès 14 ans)",

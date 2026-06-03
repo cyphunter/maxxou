@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 /**
  * Galerie de photos de scène. Grille portrait (4:5) homogène, sans recadrage —
- * adaptée aux vraies photos verticales de Maxou. Clic → lightbox.
+ * adaptée aux vraies photos verticales de Maxxou. Clic → lightbox.
  */
 export function BentoGallery({ items = galerie }: { items?: readonly GalerieItem[] }) {
   const [index, setIndex] = useState<number | null>(null);

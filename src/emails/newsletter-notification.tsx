@@ -37,7 +37,7 @@ export default function NewsletterNotificationEmail({
               margin: "0 0 4px",
             }}
           >
-            Maxou Officiel · Newsletter
+            Maxxou Officiel · Newsletter
           </Text>
           <Heading style={{ fontSize: 22, color: "#10182f", margin: "0 0 16px" }}>
             Nouvelle inscription

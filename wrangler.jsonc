@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "maxou",
+  "name": "maxxou",
   "main": ".open-next/worker.js",
   "compatibility_date": "2025-05-05",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
@@ -23,8 +23,8 @@
 
   // ─── Variables d'environnement publiques ─────────────────────────────
   "vars": {
-    "NEXT_PUBLIC_SITE_URL": "https://maxou-officiel.fr",
-    "SITE_ID": "maxou"
+    "NEXT_PUBLIC_SITE_URL": "https://maxxou-officiel.fr",
+    "SITE_ID": "maxxou"
   }
 
   // ─── Secrets (NE PAS METTRE EN CLAIR ICI) ────────────────────────────

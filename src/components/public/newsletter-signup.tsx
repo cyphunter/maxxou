@@ -15,7 +15,7 @@ type Status =
 
 /**
  * Inscription newsletter. `tone="dark"` pour fond sombre (bleu nuit / bordeaux).
- * Honeypot dédié `maxou_news_hp`.
+ * Honeypot dédié `maxxou_news_hp`.
  */
 export function NewsletterSignup({ tone = "dark" }: { tone?: "light" | "dark" }) {
   const id = useId();
@@ -27,7 +27,7 @@ export function NewsletterSignup({ tone = "dark" }: { tone?: "light" | "dark" })
     const payload = {
       email: String(formData.get("email") ?? ""),
       consent: formData.get("consent") === "on",
-      maxou_news_hp: String(formData.get("maxou_news_hp") ?? ""),
+      maxxou_news_hp: String(formData.get("maxxou_news_hp") ?? ""),
     } as unknown as NewsletterInput;
 
     setStatus({ kind: "submitting" });
@@ -62,7 +62,7 @@ export function NewsletterSignup({ tone = "dark" }: { tone?: "light" | "dark" })
       {/* Honeypot */}
       <input
         type="hidden"
-        name="maxou_news_hp"
+        name="maxxou_news_hp"
         tabIndex={-1}
         autoComplete="off"
         aria-hidden="true"
@@ -116,7 +116,7 @@ export function NewsletterSignup({ tone = "dark" }: { tone?: "light" | "dark" })
           className="mt-0.5 h-4 w-4 rounded border-noir-900/30 text-gold-600 focus:ring-gold-500"
         />
         <span>
-          J&apos;accepte de recevoir les actualités de Maxou Officiel par email. Désinscription
+          J&apos;accepte de recevoir les actualités de Maxxou Officiel par email. Désinscription
           en un clic à tout moment. Voir la{" "}
           <a
             href="/confidentialite"

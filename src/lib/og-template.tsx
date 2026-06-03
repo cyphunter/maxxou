@@ -18,7 +18,7 @@ export function renderOgImage({
   footerRight,
 }: RenderOgOpts): ImageResponse {
   const leftText = footerLeft ?? siteConfig.contact.serviceAreaLabel;
-  const rightText = footerRight ?? "maxou-officiel.fr";
+  const rightText = footerRight ?? "maxxou-officiel.fr";
 
   return new ImageResponse(
     (

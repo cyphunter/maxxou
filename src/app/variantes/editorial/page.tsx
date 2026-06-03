@@ -32,7 +32,7 @@ import { resolveIcon } from "@/components/variantes/editorial/icons";
 export const metadata = buildMetadata({
   title: "Variante — Éditorial sobre",
   description:
-    "Maquette alternative de la page d'accueil de Maxou Officiel, style éditorial sobre (Swiss / magazine premium).",
+    "Maquette alternative de la page d'accueil de Maxxou Officiel, style éditorial sobre (Swiss / magazine premium).",
   path: "/variantes/editorial",
   noindex: true,
 });
@@ -392,7 +392,7 @@ export default function EditorialVariantPage() {
         </section>
 
         {/* ═══════════════════════════════════════════════════════════
-            05 — CE QUE PROPOSE MAXOU (services)
+            05 — CE QUE PROPOSE MAXXOU (services)
         ═══════════════════════════════════════════════════════════ */}
         <section className="border-b border-ink/10 bg-paper py-20 lg:py-28">
           <div className="container-soft">
@@ -402,7 +402,7 @@ export default function EditorialVariantPage() {
                   <SectionNumber n="05" />
                 </div>
                 <div className="lg:col-span-8">
-                  <Meta>Ce que propose Maxou</Meta>
+                  <Meta>Ce que propose Maxxou</Meta>
                   <h2 className="fluid-h2 mt-4 font-display font-medium text-ink">
                     Réserver, inviter,{" "}
                     <span className="italic-display gradient-ink">collaborer</span>.
@@ -692,7 +692,7 @@ export default function EditorialVariantPage() {
             <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
               <ScrollReveal className="lg:col-span-7">
                 <span className="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-gold-300">
-                  Suivre Maxou
+                  Suivre Maxxou
                 </span>
                 <h2 className="fluid-h2 mt-4 font-display font-medium text-ivory">
                   Les coulisses, en direct sur{" "}

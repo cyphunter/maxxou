@@ -37,7 +37,7 @@ export const contactSchema = z.object({
     }),
   }),
   // Honeypot anti-spam (champ caché — doit rester vide)
-  maxou_hp: z.string().max(0).optional().or(z.literal("")),
+  maxxou_hp: z.string().max(0).optional().or(z.literal("")),
 });
 
 export type ContactInput = z.infer<typeof contactSchema>;

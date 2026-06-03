@@ -53,7 +53,7 @@ export default function ContactNotificationEmail({
               margin: "0 0 4px",
             }}
           >
-            Maxou Officiel · Nouvelle demande
+            Maxxou Officiel · Nouvelle demande
           </Text>
           <Heading style={{ fontSize: 24, color: "#10182f", margin: "0 0 20px" }}>
             {requestType} — {name}

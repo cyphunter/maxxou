@@ -118,7 +118,7 @@ export function PersonnageTicket({ personnage, index }: Props) {
           className="font-mono text-[0.58rem] uppercase tracking-[0.32em] text-stone-500"
           style={{ writingMode: "vertical-rl" }}
         >
-          Maxou Officiel
+          Maxxou Officiel
         </span>
         <span
           aria-hidden

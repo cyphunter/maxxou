@@ -1,7 +1,7 @@
 /**
- * Source unique de vérité pour les informations du site de Maxou Officiel.
+ * Source unique de vérité pour les informations du site de Maxxou Officiel.
  *
- * Maxou (ou l'agence) peut éditer ce fichier pour mettre à jour coordonnées,
+ * Maxxou (ou l'agence) peut éditer ce fichier pour mettre à jour coordonnées,
  * slogans, navigation, réseaux sociaux et mentions légales — sans toucher au
  * reste du code. Structure plate, commentée, typée `as const`.
  *
@@ -14,14 +14,14 @@
 
 export const siteConfig = {
   // ─── Identité ─────────────────────────────────────────────────────
-  name: "Maxou Officiel",
-  shortName: "Maxou",
-  legalName: "Maxou Officiel", // PLACEHOLDER — nom/raison sociale réel à renseigner
+  name: "Maxxou Officiel",
+  shortName: "Maxxou",
+  legalName: "Maxxou Officiel", // PLACEHOLDER — nom/raison sociale réel à renseigner
   role: "Humoriste & improvisateur",
   baseline: "Seul-en-scène — humour & thérapie des parties",
   tagline: "Rire de ses parts pour mieux vivre avec elles.",
   description:
-    "Maxou Officiel, seul-en-scène original mêlant humour, improvisation, psychanalyse et thérapie des parties. Chaque personnage incarne une facette de nous-mêmes — pour rire de ses mécanismes intérieurs avec bienveillance. À Lyon, Paris et en tournée.",
+    "Maxxou Officiel, seul-en-scène original mêlant humour, improvisation, psychanalyse et thérapie des parties. Chaque personnage incarne une facette de nous-mêmes — pour rire de ses mécanismes intérieurs avec bienveillance. À Lyon, Paris et en tournée.",
 
   // ─── Slogans (rotation possible dans le hero) ─────────────────────
   slogans: [
@@ -31,7 +31,7 @@ export const siteConfig = {
   ] as readonly string[],
 
   // ─── URL & locale ────────────────────────────────────────────────
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://maxou-officiel.fr", // PLACEHOLDER domaine
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://maxxou-officiel.fr", // PLACEHOLDER domaine
   locale: "fr-FR",
   language: "fr",
 
@@ -39,7 +39,7 @@ export const siteConfig = {
   contact: {
     phone: "+33600000000", // PLACEHOLDER — numéro réel (ou laisser vide si non public)
     phoneDisplay: "06 00 00 00 00", // PLACEHOLDER
-    email: "contact@maxou-officiel.fr", // PLACEHOLDER
+    email: "contact@maxxou-officiel.fr", // PLACEHOLDER
     city: "Lyon",
     secondaryCity: "Paris",
     postalCode: "69000",
@@ -62,21 +62,21 @@ export const siteConfig = {
     facebook: "",
     billetterie: "", // PLACEHOLDER — lien billetterie global (HelloAsso / BilletWeb / etc.)
   },
-  instagramHandle: "Maxou Officiel",
+  instagramHandle: "Maxxou Officiel",
   instagramUsername: "@maxxou_officiel",
 
   // ─── Mentions légales ────────────────────────────────────────────
   legal: {
     structure: "Entrepreneur individuel / artiste (statut à confirmer)", // PLACEHOLDER
     siret: "000 000 000 00000", // PLACEHOLDER — SIRET réel à renseigner
-    publisher: "Maxou Officiel", // PLACEHOLDER — nom du directeur de publication
+    publisher: "Maxxou Officiel", // PLACEHOLDER — nom du directeur de publication
     foundedYear: 2023,
     host: {
       name: "Cloudflare Inc.",
       address: "101 Townsend Street, San Francisco, CA 94107, USA",
       url: "https://www.cloudflare.com",
     },
-    dpoEmail: "contact@maxou-officiel.fr",
+    dpoEmail: "contact@maxxou-officiel.fr",
   },
 
   // ─── Navigation principale ───────────────────────────────────────
@@ -100,7 +100,7 @@ export const siteConfig = {
   // renseigner `src` (mp4 self-hosté = best perf + CSP propre). Tant que
   // `src` est vide, un emplacement élégant « bande-annonce à venir » s'affiche.
   video: {
-    src: "", // ex: "/videos/maxou-teaser.mp4"
+    src: "", // ex: "/videos/maxxou-teaser.mp4"
     poster: "/images/video/poster.svg",
     title: "Bande-annonce du spectacle",
     caption: "La vidéo officielle arrive très bientôt.",
@@ -116,8 +116,8 @@ export const siteConfig = {
   // ─── SEO / branding ──────────────────────────────────────────────
   seo: {
     globalKeywords: [
-      "Maxou",
-      "Maxou Officiel",
+      "Maxxou",
+      "Maxxou Officiel",
       "humoriste",
       "seul-en-scène",
       "one-man-show",
@@ -147,7 +147,7 @@ export type SiteConfig = typeof siteConfig;
 
 /**
  * Construit une URL absolue canonique à partir d'un chemin.
- * Ex: canonicalUrl("/personnages") → "https://maxou-officiel.fr/personnages"
+ * Ex: canonicalUrl("/personnages") → "https://maxxou-officiel.fr/personnages"
  */
 export function canonicalUrl(path: string): string {
   const base = siteConfig.url.replace(/\/+$/, "");

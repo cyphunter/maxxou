@@ -21,7 +21,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = buildMetadata({
   title: "Dates & réservation",
   description:
-    "Toutes les dates du spectacle de Maxou Officiel à Lyon, Paris et en tournée. Réservez votre place.",
+    "Toutes les dates du spectacle de Maxxou Officiel à Lyon, Paris et en tournée. Réservez votre place.",
   path: "/dates",
 });
 

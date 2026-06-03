@@ -129,7 +129,7 @@ export default function HomePage() {
           <div className="container-soft">
             <ScrollReveal className="mb-14 max-w-2xl">
               <SectionHeading
-                eyebrow="Ce que propose Maxou"
+                eyebrow="Ce que propose Maxxou"
                 title="Réserver, inviter, collaborer."
                 intro="Le seul-en-scène en salle, des interventions sur-mesure, et des partenariats pour aller plus loin."
               />

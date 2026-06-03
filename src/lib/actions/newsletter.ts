@@ -10,7 +10,7 @@ type ActionResult = { ok: true } | { ok: false; error: string };
 /**
  * Server Action — inscription à la newsletter.
  *
- * Site showcase sans base de données : on notifie Maxou par email (Resend) de
+ * Site showcase sans base de données : on notifie Maxxou par email (Resend) de
  * chaque nouvelle inscription. Pour brancher un vrai service (Brevo, Mailchimp,
  * Resend Audiences…), remplacer l'envoi par un appel à l'API du provider ici.
  */
@@ -24,12 +24,12 @@ export async function subscribeNewsletter(input: NewsletterInput): Promise<Actio
   const data = parsed.data;
 
   // Honeypot → faux succès silencieux
-  if (data.maxou_news_hp && data.maxou_news_hp.trim().length > 0) {
+  if (data.maxxou_news_hp && data.maxxou_news_hp.trim().length > 0) {
     return { ok: true };
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const fromEmail = process.env.RESEND_FROM_EMAIL ?? "contact@maxou-officiel.fr";
+  const fromEmail = process.env.RESEND_FROM_EMAIL ?? "contact@maxxou-officiel.fr";
   const toEmail = process.env.NEWSLETTER_RECIPIENT_EMAIL ?? siteConfig.contact.email;
 
   if (!apiKey) {

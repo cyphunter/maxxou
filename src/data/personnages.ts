@@ -6,7 +6,7 @@
  * `personnage-card.tsx` (les fichiers data n'importent pas de composants).
  * `accent` pilote la couleur dominante de la carte (or / bleu nuit / bordeaux).
  *
- * ⚠️ Textes à valider/ajuster avec Maxou. Visuels = placeholders SVG.
+ * ⚠️ Textes à valider/ajuster avec Maxxou. Visuels = placeholders SVG.
  */
 
 export type PersonnageAccent = "gold" | "navy" | "wine";

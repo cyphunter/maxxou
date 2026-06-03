@@ -15,7 +15,7 @@ type ActionResult =
  *
  * Pipeline :
  *  1. Parse Zod (input)
- *  2. Honeypot : si `maxou_hp` rempli → 200 OK silencieux (bot)
+ *  2. Honeypot : si `maxxou_hp` rempli → 200 OK silencieux (bot)
  *  3. Sanitize des champs texte (strip HTML)
  *  4. Envoi Resend avec replyTo = email du visiteur
  */
@@ -37,13 +37,13 @@ export async function sendContactMessage(input: ContactInput): Promise<ActionRes
   const data = parsed.data;
 
   // ─── Honeypot ────────────────────────────────────────────────
-  if (data.maxou_hp && data.maxou_hp.trim().length > 0) {
+  if (data.maxxou_hp && data.maxxou_hp.trim().length > 0) {
     return { ok: true };
   }
 
   // ─── Resend ─────────────────────────────────────────────────
   const apiKey = process.env.RESEND_API_KEY;
-  const fromEmail = process.env.RESEND_FROM_EMAIL ?? "contact@maxou-officiel.fr";
+  const fromEmail = process.env.RESEND_FROM_EMAIL ?? "contact@maxxou-officiel.fr";
   const toEmail = process.env.CONTACT_RECIPIENT_EMAIL ?? siteConfig.contact.email;
 
   if (!apiKey) {

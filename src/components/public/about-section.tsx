@@ -20,7 +20,7 @@ export function AboutSection() {
           <div className="frame-premium relative aspect-[4/5]">
             <SmartImage
               src={media.portrait}
-              alt="Portrait de Maxou, humoriste et improvisateur"
+              alt="Portrait de Maxxou, humoriste et improvisateur"
               fill
               sizes="(min-width: 1024px) 40vw, 90vw"
               className="object-cover"
@@ -33,13 +33,13 @@ export function AboutSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.1} className="lg:col-span-7">
-          <p className="eyebrow eyebrow--light">Qui est Maxou ?</p>
+          <p className="eyebrow eyebrow--light">Qui est Maxxou ?</p>
           <h2 className="fluid-h2 mt-4 text-ivory">
             L&apos;humour comme{" "}
             <span className="italic-display text-gold-300">porte d&apos;entrée</span>.
           </h2>
           <p className="fluid-lead mt-6 text-cream-100/85">
-            Humoriste et improvisateur, Maxou met en scène les voix qui nous habitent. Nourri
+            Humoriste et improvisateur, Maxxou met en scène les voix qui nous habitent. Nourri
             par la pratique de l&apos;impro, le goût de la scène et une vraie curiosité pour la
             thérapie des parties, il transforme nos contradictions en éclats de rire.
           </p>
@@ -65,7 +65,7 @@ export function AboutSection() {
             href="/a-propos"
             className="group mt-9 inline-flex items-center gap-2 text-sm font-medium text-gold-300 transition-colors hover:text-gold-200"
           >
-            En savoir plus sur Maxou
+            En savoir plus sur Maxxou
             <ArrowUpRight
               size={15}
               aria-hidden

@@ -17,7 +17,7 @@ import { ScrollReveal } from "@/components/motion/scroll-reveal";
 export const metadata: Metadata = buildMetadata({
   title: "À propos",
   description:
-    "Maxou : humoriste et improvisateur, formé à l'impro et passionné de thérapie des parties. Une approche pédagogique et bienveillante.",
+    "Maxxou : humoriste et improvisateur, formé à l'impro et passionné de thérapie des parties. Une approche pédagogique et bienveillante.",
   path: "/a-propos",
 });
 
@@ -34,14 +34,14 @@ export default function AProposPage() {
       <Header />
       <main id="main-content">
         <PageHero
-          eyebrow="Qui est Maxou ?"
+          eyebrow="Qui est Maxxou ?"
           title={
             <>
               L&apos;humour comme{" "}
               <span className="italic-display gradient-ink">porte d&apos;entrée</span>.
             </>
           }
-          intro="Derrière les personnages, une même conviction : on rit mieux des sujets profonds quand on les regarde avec tendresse. Voici le parcours et la philosophie de Maxou."
+          intro="Derrière les personnages, une même conviction : on rit mieux des sujets profonds quand on les regarde avec tendresse. Voici le parcours et la philosophie de Maxxou."
         />
 
         {/* ───────── Bio éditoriale (clair) */}
@@ -54,14 +54,14 @@ export default function AProposPage() {
                 <div className="frame-premium relative aspect-[4/5]">
                   <SmartImage
                     src={media.portrait}
-                    alt="Portrait de Maxou, humoriste et improvisateur"
+                    alt="Portrait de Maxxou, humoriste et improvisateur"
                     fill
                     sizes="(min-width: 1024px) 40vw, 90vw"
                     className="object-cover"
                   />
                   <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-navy-950/70 px-4 py-1.5 text-xs font-medium text-ivory ring-1 ring-ivory/15 backdrop-blur-md">
                     <span className="h-1.5 w-1.5 rounded-full bg-gold-500" aria-hidden />
-                    Maxou · Humoriste &amp; improvisateur
+                    Maxxou · Humoriste &amp; improvisateur
                   </div>
                 </div>
 
@@ -92,7 +92,7 @@ export default function AProposPage() {
               <div className="mt-8 space-y-6 text-lg leading-relaxed text-stone-600">
                 <p>
                   Tout a commencé sur les planches de l&apos;improvisation théâtrale. C&apos;est
-                  là que Maxou apprend l&apos;essentiel : écouter vraiment, accueillir
+                  là que Maxxou apprend l&apos;essentiel : écouter vraiment, accueillir
                   l&apos;imprévu, faire confiance à l&apos;instant. Aucun filet, aucun texte
                   appris par cœur — juste l&apos;énergie d&apos;une salle et l&apos;envie
                   partagée de faire rire. De cette discipline naît une présence vive, capable de
@@ -100,7 +100,7 @@ export default function AProposPage() {
                 </p>
                 <p>
                   Très vite, la scène devient une évidence. Représentation après
-                  représentation, Maxou affine son sens du rythme, du timing comique et de la
+                  représentation, Maxxou affine son sens du rythme, du timing comique et de la
                   complicité avec le public. Mais au fil des spectacles, une question
                   l&apos;habite&nbsp;: pourquoi rit-on autant de nos propres travers&nbsp;? Et
                   s&apos;il y avait, derrière l&apos;éclat de rire, quelque chose de plus
@@ -113,14 +113,14 @@ export default function AProposPage() {
                   perfectionniste, l&apos;anxieux, le rebelle, l&apos;enfant joueur — résonne
                   immédiatement avec son travail de personnages. Chaque part de nous devient un
                   rôle&nbsp;; chaque rôle, une part de nous. Nourri par cette approche et par sa
-                  curiosité pour la psychanalyse et le développement personnel, Maxou bâtit un
+                  curiosité pour la psychanalyse et le développement personnel, Maxxou bâtit un
                   spectacle où l&apos;humour sert de porte d&apos;entrée vers l&apos;intime.
                 </p>
                 <p>
                   Sa philosophie tient en une ligne&nbsp;: <em>rire sans juger</em>. Pas de
                   leçon, pas de moquerie, pas de spectateur pris pour cible. Juste un miroir
                   drôle et tendre, où chacun reconnaît un bout de soi et repart un peu plus
-                  léger. Pédagogue dans l&apos;âme, Maxou rend accessibles des sujets que
+                  léger. Pédagogue dans l&apos;âme, Maxxou rend accessibles des sujets que
                   l&apos;on aborde rarement — et prouve que l&apos;on peut parler sérieusement
                   de soi… en pleurant de rire.
                 </p>
@@ -142,7 +142,7 @@ export default function AProposPage() {
                     </p>
                   </blockquote>
                   <figcaption className="mt-4 text-sm font-medium text-stone-500">
-                    Maxou
+                    Maxxou
                   </figcaption>
                 </figure>
               </ScrollReveal>
@@ -159,7 +159,7 @@ export default function AProposPage() {
                 title={
                   <>
                     Pourquoi faire confiance à{" "}
-                    <span className="italic-display gradient-ink">Maxou</span>.
+                    <span className="italic-display gradient-ink">Maxxou</span>.
                   </>
                 }
                 intro="Un spectacle léger en apparence, mais solidement ancré : l'impro, l'expérience de la scène et une vraie connaissance de la thérapie des parties."

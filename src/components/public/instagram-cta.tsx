@@ -4,10 +4,10 @@ import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { siteConfig } from "@/lib/site-config";
 
 const tiles = [
-  { src: "/images/scene/scene-01.jpg", alt: "Maxou au micro sous les projecteurs" },
-  { src: "/images/scene/scene-02.jpg", alt: "Maxou en pied sur scène" },
-  { src: "/images/scene/scene-03.jpg", alt: "Maxou en pleine improvisation" },
-  { src: "/images/scene/scene-04.jpg", alt: "Maxou en fin de spectacle" },
+  { src: "/images/scene/scene-01.jpg", alt: "Maxxou au micro sous les projecteurs" },
+  { src: "/images/scene/scene-02.jpg", alt: "Maxxou en pied sur scène" },
+  { src: "/images/scene/scene-03.jpg", alt: "Maxxou en pleine improvisation" },
+  { src: "/images/scene/scene-04.jpg", alt: "Maxxou en fin de spectacle" },
 ];
 
 export function InstagramCta() {

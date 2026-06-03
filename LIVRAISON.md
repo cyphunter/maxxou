@@ -1,10 +1,10 @@
-# Livraison — Maxou Officiel
+# Livraison — Maxxou Officiel
 
 > Document remis le jour de la mise en ligne. À conserver précieusement.
 
 ## Informations générales
 
-- **Site** : https://maxou-officiel.fr  *(domaine à confirmer)*
+- **Site** : https://maxxou-officiel.fr  *(domaine à confirmer)*
 - **Mis en ligne le** : `JJ/MM/AAAA`
 - **Développeur** : Kevin — fostraceur999@gmail.com
 - **Repo GitHub** : `<URL>`
@@ -28,8 +28,8 @@ Fichier : **`src/data/personnages.ts`**. Pour chaque personnage : nom, « part �
 - Bénéfices, atouts, FAQ, témoignages : `src/data/*.ts`
 
 ### 5. La vidéo de présentation (accueil)
-1. Déposer le fichier `.mp4` dans `public/videos/` (ex : `maxou-teaser.mp4`).
-2. Dans `src/lib/site-config.ts`, bloc `video`, renseigner `src: "/videos/maxou-teaser.mp4"` (et un `poster` si souhaité).
+1. Déposer le fichier `.mp4` dans `public/videos/` (ex : `maxxou-teaser.mp4`).
+2. Dans `src/lib/site-config.ts`, bloc `video`, renseigner `src: "/videos/maxxou-teaser.mp4"` (et un `poster` si souhaité).
 3. La section « bande-annonce » bascule automatiquement en lecteur vidéo.
 
 ### 6. Les images
@@ -47,14 +47,14 @@ Fichier : **`src/data/personnages.ts`**. Pour chaque personnage : nom, « part �
 | **GitHub** (code) | `<URL repo>` | `<username>` |
 | **Registrar domaine** | `<URL>` | `<identifiant>` |
 | **Google Search Console** | https://search.google.com/search-console | `<email>` |
-| **Instagram** | https://instagram.com/`<compte>` | `<compte Maxou>` |
+| **Instagram** | https://instagram.com/`<compte>` | `<compte Maxxou>` |
 | **Monitoring** (UptimeRobot/BetterStack) | `<URL>` | `<email>` |
 
 > Conserver ces accès dans un gestionnaire de mots de passe (1Password / Bitwarden).
 
 ## Emails du site
 
-- Expéditeur transactionnel : `contact@maxou-officiel.fr` (via Resend, domaine à vérifier).
+- Expéditeur transactionnel : `contact@maxxou-officiel.fr` (via Resend, domaine à vérifier).
 - Les **demandes de contact** et les **inscriptions newsletter** arrivent par email (Resend) à l'adresse configurée.
 - Pour une vraie liste de diffusion (Brevo, Mailchimp…), nous pouvons brancher le service ultérieurement.
 

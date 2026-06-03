@@ -37,7 +37,7 @@ import { DateStub } from "@/components/variantes/ticket/date-stub";
 export const metadata = buildMetadata({
   title: "Variante — Ticket de spectacle",
   description:
-    "Maquette alternative de la page d'accueil de Maxou Officiel, déclinée façon billet de théâtre : carrée, sobre et thématique.",
+    "Maquette alternative de la page d'accueil de Maxxou Officiel, déclinée façon billet de théâtre : carrée, sobre et thématique.",
   path: "/variantes/ticket",
   noindex: true,
 });
@@ -101,7 +101,7 @@ function TicketHeader() {
             href={siteConfig.social.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Instagram de Maxou"
+            aria-label="Instagram de Maxxou"
             className="inline-flex h-9 w-9 items-center justify-center rounded-[2px] border border-ink/20 text-ink transition-colors hover:border-ink/50"
           >
             <Instagram size={16} aria-hidden />

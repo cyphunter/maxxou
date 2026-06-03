@@ -29,7 +29,7 @@ import type { TheaterEvent, WithContext } from "schema-dts";
 export const metadata: Metadata = buildMetadata({
   title: "Le spectacle",
   description:
-    "Le seul-en-scène de Maxou : humour, improvisation et thérapie des parties. Chaque personnage intérieur monte sur scène — à Lyon, Paris et en tournée.",
+    "Le seul-en-scène de Maxxou : humour, improvisation et thérapie des parties. Chaque personnage intérieur monte sur scène — à Lyon, Paris et en tournée.",
   path: "/spectacle",
 });
 
@@ -91,7 +91,7 @@ export default function SpectaclePage() {
               sur scène.
             </>
           }
-          intro="Humour, improvisation et thérapie des parties : Maxou donne corps aux voix qui nous habitent. Le Critique, l'Anxieux, le Perfectionniste, l'Enfant… on les reconnaît, on en rit — et on les regarde, enfin, avec tendresse."
+          intro="Humour, improvisation et thérapie des parties : Maxxou donne corps aux voix qui nous habitent. Le Critique, l'Anxieux, le Perfectionniste, l'Enfant… on les reconnaît, on en rit — et on les regarde, enfin, avec tendresse."
         />
 
         {/* ───────── Intro éditoriale + faits clés */}
@@ -115,7 +115,7 @@ export default function SpectaclePage() {
                 à sa manière maladroite, essaie de nous protéger.
               </p>
               <p>
-                Maxou s&apos;empare de cette matière avec humour. Il incarne tour à tour
+                Maxxou s&apos;empare de cette matière avec humour. Il incarne tour à tour
                 ces personnages, les fait dialoguer, les pousse dans leurs retranchements
                 — et nous fait rire de nos mécanismes les plus intimes. Pas de jargon, pas
                 de prérequis&nbsp;: tout passe par le rire et l&apos;émotion.
@@ -152,12 +152,12 @@ export default function SpectaclePage() {
         {/* ───────── Bande-annonce */}
         <VideoShowcase />
 
-        {/* ───────── Ce que propose Maxou */}
+        {/* ───────── Ce que propose Maxxou */}
         <section className="relative bg-bone py-24 lg:py-32">
           <div className="container-soft">
             <ScrollReveal className="mb-14 max-w-2xl">
               <SectionHeading
-                eyebrow="Ce que propose Maxou"
+                eyebrow="Ce que propose Maxxou"
                 title="Réserver, inviter, collaborer."
                 intro="Le seul-en-scène en salle, des interventions sur-mesure pour entreprises et écoles, et des partenariats pour aller plus loin."
               />

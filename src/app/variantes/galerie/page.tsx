@@ -38,7 +38,7 @@ import { PersonnagesGrid } from "@/components/variantes/galerie/personnages-grid
 export const metadata = buildMetadata({
   title: "Maquette — Minimal galerie",
   description:
-    "Proposition de page d'accueil alternative pour Maxou Officiel, dans un style minimal galerie : épuré, carré, monochrome.",
+    "Proposition de page d'accueil alternative pour Maxxou Officiel, dans un style minimal galerie : épuré, carré, monochrome.",
   path: "/variantes/galerie",
   noindex: true,
 });

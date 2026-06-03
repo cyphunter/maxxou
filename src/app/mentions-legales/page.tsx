@@ -9,7 +9,7 @@ import { PageHero } from "@/components/public/page-hero";
 
 export const metadata: Metadata = buildMetadata({
   title: "Mentions légales",
-  description: "Mentions légales du site de Maxou Officiel.",
+  description: "Mentions légales du site de Maxxou Officiel.",
   path: "/mentions-legales",
   noindex: true,
 });
@@ -82,7 +82,7 @@ export default function MentionsLegalesPage() {
               <h2 className="font-display text-2xl text-ink">Crédits</h2>
               <p className="mt-3 leading-relaxed">
                 Visuels d&apos;illustration : placeholders SVG générés, destinés à être
-                remplacés par les vrais visuels et photos de scène de Maxou. Conception
+                remplacés par les vrais visuels et photos de scène de Maxxou. Conception
                 &amp; développement : agence web.
               </p>
             </div>

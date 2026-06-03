@@ -1,5 +1,5 @@
 /**
- * Génère des placeholders SVG « premium » pour le site Maxou Officiel.
+ * Génère des placeholders SVG « premium » pour le site Maxxou Officiel.
  *
  * Pourquoi : sharp est blacklisté (binaire natif) et on ne dépend d'aucune
  * banque d'images externe (CSP self-only). Ces SVG théâtraux (bleu nuit /
@@ -91,7 +91,7 @@ const personnages = [
 // ─── Poster vidéo (toujours placeholder tant que la vraie vidéo n'est pas prête) ─
 write("video/poster.svg", svg({ w: 1600, h: 900, title: "Bande-annonce", subtitle: "VIDÉO À VENIR", accent: "navy", play: true }));
 
-// NB : le portrait (portrait-maxou) et les photos de scène (scene-01..04) sont
+// NB : le portrait (portrait-maxxou) et les photos de scène (scene-01..04) sont
 // désormais de VRAIES photos (.jpg) — ce script ne les régénère plus.
 
 // ─── Personnages ──────────────────────────────────────────────────────

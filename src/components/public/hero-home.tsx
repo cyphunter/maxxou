@@ -235,7 +235,7 @@ export function HeroHome() {
               <div className="frame-premium relative aspect-[4/5] bg-navy-900">
                 <SmartImage
                   src={media.portrait}
-                  alt="Maxou, humoriste et improvisateur, en scène"
+                  alt="Maxxou, humoriste et improvisateur, en scène"
                   fill
                   priority
                   sizes="(min-width: 1024px) 38vw, 90vw"

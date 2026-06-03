@@ -1,5 +1,5 @@
 /**
- * Pourquoi faire confiance à Maxou — ce qui fonde sa légitimité.
+ * Pourquoi faire confiance à Maxxou — ce qui fonde sa légitimité.
  * `icon` = clé mappée vers une icône lucide dans `atouts-grid.tsx`.
  */
 
