@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 
 import { buildMetadata } from "@/lib/seo";
 import { canonicalUrl } from "@/lib/site-config";
@@ -9,11 +7,11 @@ import { personnages } from "@/data/personnages";
 import { Header } from "@/components/public/header";
 import { Footer } from "@/components/public/footer";
 import { PageHero } from "@/components/public/page-hero";
-import { PersonnageCard } from "@/components/public/personnage-card";
+import { PersonnagesGrid } from "@/components/public/personnages-grid";
 import { CtaBandeau } from "@/components/public/cta-bandeau";
+import { UnderlineLink } from "@/components/ui/gallery";
 
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
-import { StaggerReveal, StaggerItem } from "@/components/motion/stagger-reveal";
 
 import { JsonLd } from "@/components/seo/json-ld";
 import type { ItemList, WithContext } from "schema-dts";
@@ -52,24 +50,29 @@ export default function PersonnagesPage() {
           title={
             <>
               Tous les personnages dans votre tête,{" "}
-              <span className="italic-display gradient-ink">enfin réunis</span>.
+              <span className="italic-display text-gold-700">enfin réunis</span>.
             </>
           }
           intro="Inspirés de la thérapie des parties : chacun incarne une facette de nous-mêmes."
         />
 
         {/* ───────── Qu'est-ce que la « thérapie des parties » */}
-        <section className="relative bg-paper py-24 lg:py-32">
-          <div className="container-narrow">
-            <ScrollReveal>
-              <p className="eyebrow">En deux mots</p>
-              <h2 className="fluid-h2 mt-4 text-ink">
-                C&apos;est quoi, la{" "}
-                <span className="italic-display gradient-ink">thérapie des parties</span> ?
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={0.05}>
-              <div className="mt-8 space-y-6 text-lg leading-relaxed text-stone-600">
+        <section className="border-b border-ink/10 bg-ivory">
+          <div className="container-gallery py-24 lg:py-32">
+            <div className="grid gap-12 lg:grid-cols-12">
+              <ScrollReveal className="lg:col-span-5">
+                <p className="eyebrow">
+                  En deux mots
+                </p>
+                <h2 className="mt-5 font-display text-[clamp(1.9rem,3.5vw,3rem)] font-normal leading-tight text-ink">
+                  C&apos;est quoi, la{" "}
+                  <span className="italic-display text-gold-700">thérapie des parties</span> ?
+                </h2>
+              </ScrollReveal>
+              <ScrollReveal
+                delay={0.05}
+                className="space-y-6 text-base leading-relaxed text-stone-600 lg:col-span-7"
+              >
                 <p>
                   L&apos;idée est aussi simple que rassurante : on n&apos;est jamais une seule
                   personne, mais une petite troupe. Une part qui juge, une part qui s&apos;inquiète,
@@ -78,67 +81,55 @@ export default function PersonnagesPage() {
                   compliquent la vie.
                 </p>
                 <p>
-                  La «&nbsp;thérapie des parties&nbsp;» propose d&apos;arrêter de les faire taire
-                  pour apprendre, doucement, à les écouter. Sur scène, Maxxou leur donne enfin un
-                  corps, une voix et un costume. On rit de les reconnaître — parce qu&apos;au fond,
-                  on les connaît tous très bien.
+                  La « thérapie des parties » propose d&apos;arrêter de les faire taire pour
+                  apprendre, doucement, à les écouter. Sur scène, Maxxou leur donne enfin un corps,
+                  une voix et un costume. On rit de les reconnaître — parce qu&apos;au fond, on les
+                  connaît tous très bien.
                 </p>
-              </div>
-            </ScrollReveal>
+              </ScrollReveal>
+            </div>
           </div>
         </section>
 
         {/* ───────── Galerie complète des personnages */}
-        <section className="relative bg-bone py-24 lg:py-32">
-          <div className="container-soft">
-            <ScrollReveal className="mb-14 max-w-2xl">
-              <p className="eyebrow">La distribution au complet</p>
-              <h2 className="fluid-h2 mt-4 text-ink">
+        <section className="border-b border-ink/10 bg-paper">
+          <div className="container-gallery py-24 lg:py-32">
+            <ScrollReveal className="mb-16 max-w-2xl">
+              <p className="eyebrow">
+                La distribution au complet
+              </p>
+              <h2 className="mt-5 font-display text-[clamp(1.9rem,4vw,3.4rem)] font-normal leading-tight text-ink">
                 Faites connaissance avec{" "}
-                <span className="italic-display gradient-navy">toute la bande</span>.
+                <span className="italic-display text-gold-700">toute la bande</span>.
               </h2>
-              <p className="fluid-lead mt-5 text-stone-500">
+              <p className="mt-6 text-base leading-relaxed text-stone-600">
                 Du Critique au Chef d&apos;orchestre : chacun a son rôle, sa réplique et sa façon
                 bien à lui de prendre toute la place.
               </p>
             </ScrollReveal>
-            <StaggerReveal className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {personnages.map((p, index) => (
-                <StaggerItem key={p.slug} className="h-full">
-                  <PersonnageCard personnage={p} priority={index === 0} />
-                </StaggerItem>
-              ))}
-            </StaggerReveal>
+            <PersonnagesGrid personnages={personnages} priorityFirst />
           </div>
         </section>
 
-        {/* ───────── Bandeau d'accent (bordeaux) */}
-        <section className="section-wine grain relative overflow-hidden py-24 lg:py-32">
-          <div aria-hidden className="aurora opacity-40" />
-          <div aria-hidden className="spotlight" />
-          <div className="container-narrow relative text-center">
-            <ScrollReveal>
-              <p className="eyebrow eyebrow--center eyebrow--light">La promesse du spectacle</p>
-              <h2 className="fluid-h2 mt-5 text-ivory">
+        {/* ───────── La promesse du spectacle */}
+        <section className="border-b border-ink/10 bg-ivory">
+          <div className="container-gallery py-24 text-center lg:py-32">
+            <ScrollReveal className="mx-auto max-w-3xl">
+              <p className="eyebrow">
+                La promesse du spectacle
+              </p>
+              <p className="mt-7 font-display text-[clamp(1.9rem,4vw,3.2rem)] font-normal leading-tight text-ink">
                 Le but n&apos;est pas de faire taire ces voix, mais d&apos;apprendre à les{" "}
-                <span className="italic-display text-gold-300">écouter</span> — en riant.
-              </h2>
-              <p className="fluid-lead mx-auto mt-6 max-w-xl text-cream-100/80">
-                Un peu plus d&apos;une heure pour réunir toute la troupe sur scène, leur rendre
-                leur dignité… et repartir un peu plus réconcilié avec soi-même.
+                <span className="italic-display text-gold-700">écouter</span> — en riant.
+              </p>
+              <p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-stone-600">
+                Un peu plus d&apos;une heure pour réunir toute la troupe sur scène, leur rendre leur
+                dignité… et repartir un peu plus réconcilié avec soi-même.
               </p>
               <div className="mt-10 flex justify-center">
-                <Link
-                  href="/spectacle"
-                  className="group inline-flex items-center gap-2 rounded-full bg-gold-500 px-7 py-3.5 text-sm font-medium text-noir-900 transition-colors duration-300 hover:bg-gold-400"
-                >
+                <UnderlineLink href="/spectacle" withArrow className="text-ink">
                   Découvrir le spectacle
-                  <ArrowUpRight
-                    size={16}
-                    aria-hidden
-                    className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  />
-                </Link>
+                </UnderlineLink>
               </div>
             </ScrollReveal>
           </div>

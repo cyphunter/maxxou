@@ -23,8 +23,8 @@ export default function ConfidentialitePage() {
           title="Politique de confidentialité"
           intro="Le respect de votre vie privée est essentiel."
         />
-        <section className="bg-paper pb-24 pt-4 lg:pb-32">
-          <div className="container-narrow space-y-10 text-stone-600">
+        <section className="bg-ivory">
+          <div className="container-narrow space-y-10 py-20 text-stone-600 lg:py-28">
             <p className="text-sm text-stone-400">Dernière mise à jour : juin 2026.</p>
 
             <div>

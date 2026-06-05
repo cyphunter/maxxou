@@ -44,25 +44,21 @@ export default async function ContactPage({
           eyebrow="Contact"
           title={
             <>
-              Parlons de votre{" "}
-              <span className="italic-display gradient-ink">projet</span>.
+              Parlons de votre <span className="italic-display text-gold-700">projet</span>.
             </>
           }
           intro="Une date à programmer, une intervention à imaginer, un partenariat à construire ? Écrivez-moi : je réponds rapidement."
         />
 
-        <section className="bg-paper pb-24 pt-4 lg:pb-32">
-          <div className="container-soft grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <section className="border-b border-ink/10 bg-ivory">
+          <div className="container-gallery grid gap-12 py-24 lg:grid-cols-12 lg:gap-16 lg:py-32">
             {/* Coordonnées */}
             <ScrollReveal className="lg:col-span-5">
-              <div className="grid gap-4">
+              <div className="border-t border-ink/10">
                 {cards.map((c) => (
-                  <div
-                    key={c.title}
-                    className="flex items-start gap-4 rounded-2xl bg-ivory p-5 shadow-soft ring-1 ring-noir-900/10"
-                  >
-                    <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy-900 text-gold-400">
-                      <c.icon size={20} aria-hidden />
+                  <div key={c.title} className="flex items-start gap-4 border-b border-ink/10 py-6">
+                    <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center border border-ink/20 text-ink">
+                      <c.icon size={19} aria-hidden />
                     </span>
                     <div>
                       <h2 className="font-display text-lg text-ink">{c.title}</h2>
@@ -72,10 +68,10 @@ export default async function ContactPage({
                 ))}
               </div>
 
-              <div className="mt-8 space-y-4 border-t border-noir-900/10 pt-8 text-sm">
+              <div className="mt-8 space-y-4 text-sm">
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="flex items-center gap-3 text-stone-700 transition-colors hover:text-gold-700"
+                  className="flex items-center gap-3 text-stone-600 transition-colors hover:text-ink"
                 >
                   <Mail size={17} aria-hidden className="text-gold-700" />
                   {siteConfig.contact.email}
@@ -85,7 +81,7 @@ export default async function ContactPage({
                     href={siteConfig.social.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-stone-700 transition-colors hover:text-gold-700"
+                    className="flex items-center gap-3 text-stone-600 transition-colors hover:text-ink"
                   >
                     <Instagram size={17} aria-hidden className="text-gold-700" />
                     {siteConfig.instagramHandle}
@@ -100,7 +96,7 @@ export default async function ContactPage({
 
             {/* Formulaire */}
             <ScrollReveal delay={0.1} className="lg:col-span-7">
-              <div className="rounded-2xl bg-ivory p-6 shadow-soft ring-1 ring-noir-900/10 sm:p-8">
+              <div className="border border-ink/10 bg-paper p-6 sm:p-8">
                 <ContactForm defaultRequestType={defaultRequestType} />
               </div>
             </ScrollReveal>

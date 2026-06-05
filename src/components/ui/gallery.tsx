@@ -1,15 +1,14 @@
-"use client";
-
 /**
- * Primitives de la variante « Minimal galerie » (key="galerie").
+ * Primitives du design system « galerie minimaliste » (DA validée).
  *
  * Esprit musée / galerie d'art contemporain : ultra épuré, angles francs
- * (rounded-none), quasi monochrome (anthracite sur papier), l'or seulement
- * en touche infime. Les boutons sont des liens texte avec filet inférieur
- * (underline animé) — pas de pastilles, pas d'ombres.
+ * (rounded-none), quasi monochrome (anthracite sur ivoire), l'or seulement
+ * en touche infime. Les boutons sont des liens texte à filet inférieur
+ * (underline animé) ou des rectangles à filet 1px — jamais de pastilles
+ * arrondies ni d'ombres.
  *
- * Ces primitives sont co-localisées : elles ne sont utilisées que par la
- * maquette alternative et ne modifient rien du design system existant.
+ * Composants serveur (aucun hook) : utilisables dans les pages et les
+ * composants serveur comme client.
  */
 
 import Link from "next/link";
@@ -19,19 +18,21 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 /* ─────────────────────────────────────────────────────────────────────
-   Lien « cartel » : texte + filet inférieur qui se révèle au survol.
+   Lien « cartel » : texte + filet inférieur révélé au survol.
    Le plus discret possible — c'est l'écriture qui fait le bouton.
    ──────────────────────────────────────────────────────────────────── */
 type UnderlineLinkProps = {
   href: string;
   children: ReactNode;
   className?: string;
-  /** Affiche la petite flèche diagonale (lien sortant / mise en avant). */
+  /** Petite flèche diagonale (lien sortant / mise en avant). */
   withArrow?: boolean;
   /** Variante claire pour fond sombre. */
   light?: boolean;
-  /** Lien externe (ouvre dans un nouvel onglet). */
+  /** Lien externe (nouvel onglet). */
   external?: boolean;
+  /** Page courante : le filet reste affiché en permanence. */
+  active?: boolean;
 };
 
 export function UnderlineLink({
@@ -41,6 +42,7 @@ export function UnderlineLink({
   withArrow = false,
   light = false,
   external = false,
+  active = false,
 }: UnderlineLinkProps) {
   const inner = (
     <>
@@ -49,7 +51,10 @@ export function UnderlineLink({
         <span
           aria-hidden
           className={cn(
-            "absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100 group-focus-visible:scale-x-100",
+            "absolute -bottom-1 left-0 h-px w-full origin-left transition-transform duration-500 ease-out",
+            active
+              ? "scale-x-100"
+              : "scale-x-0 group-hover:scale-x-100 group-focus-visible:scale-x-100",
             light ? "bg-ivory" : "bg-ink",
           )}
         />
@@ -79,7 +84,7 @@ export function UnderlineLink({
   }
 
   return (
-    <Link href={href} className={classes}>
+    <Link href={href} aria-current={active ? "page" : undefined} className={classes}>
       {inner}
     </Link>
   );
@@ -87,14 +92,14 @@ export function UnderlineLink({
 
 /* ─────────────────────────────────────────────────────────────────────
    Bouton « contour » : rectangle, filet 1px, pas d'ombre. Pour les CTA
-   principaux discrets (Réserver, etc.). Variante pleine anthracite dispo.
+   principaux discrets. Variante pleine anthracite et variante claire.
    ──────────────────────────────────────────────────────────────────── */
 type FrameButtonProps = {
   href: string;
   children: ReactNode;
   className?: string;
-  /** "outline" (défaut) = filet ; "solid" = aplat anthracite ; "light" = filet clair sur fond sombre. */
-  variant?: "outline" | "solid" | "light";
+  /** "outline" (défaut) = filet ; "solid" = aplat anthracite ; "gold" = aplat doré (CTA chaud) ; "light" = filet clair sur fond sombre. */
+  variant?: "outline" | "solid" | "gold" | "light";
   external?: boolean;
 };
 
@@ -111,9 +116,11 @@ export function FrameButton({
   const variantClasses =
     variant === "solid"
       ? "bg-ink text-ivory hover:bg-noir-700"
-      : variant === "light"
-        ? "border border-ivory/35 text-ivory hover:border-ivory hover:bg-ivory/5"
-        : "border border-ink/25 text-ink hover:border-ink hover:bg-ink/[0.03]";
+      : variant === "gold"
+        ? "bg-gold-500 text-noir-950 hover:bg-gold-400"
+        : variant === "light"
+          ? "border border-ivory/35 text-ivory hover:border-ivory hover:bg-ivory/5"
+          : "border border-ink/25 text-ink hover:border-ink hover:bg-ink/[0.03]";
 
   const inner = (
     <>

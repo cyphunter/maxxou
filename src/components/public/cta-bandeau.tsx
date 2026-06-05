@@ -1,47 +1,41 @@
-import Link from "next/link";
-import { ArrowUpRight, Ticket } from "lucide-react";
+import { TextReveal } from "@/components/motion/text-reveal";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { Magnetic } from "@/components/motion/magnetic";
+import { UnderlineLink, FrameButton } from "@/components/ui/gallery";
 
+/**
+ * Bandeau d'appel à l'action final, style galerie : centré, immense titre
+ * display, deux actions discrètes. Aucun aplat sombre.
+ */
 export function CtaBandeau() {
   return (
-    <section className="section-noir grain relative overflow-hidden py-24 lg:py-32">
-      <div aria-hidden className="aurora opacity-40" />
-      <div aria-hidden className="fil-grid pointer-events-none absolute inset-0 opacity-40" />
-      <div aria-hidden className="spotlight" />
-      <div className="container-narrow relative text-center">
+    <section className="relative overflow-hidden border-b border-ink/10 bg-ivory">
+      <div aria-hidden className="hero-glow hero-glow--center" />
+      <div className="container-gallery relative z-10 py-28 text-center lg:py-40">
         <ScrollReveal>
-          <p className="eyebrow eyebrow--center eyebrow--light">Le rideau se lève bientôt</p>
-          <h2 className="fluid-h2 mt-5 text-ivory">
-            Venez rire de vos petites voix{" "}
-            <span className="italic-display text-gold-300">intérieures</span>.
-          </h2>
-          <p className="fluid-lead mx-auto mt-6 max-w-xl text-cream-100/80">
-            Réservez votre place pour une prochaine représentation à Lyon, Paris ou ailleurs —
-            ou contactez-nous pour une intervention, un atelier ou un partenariat.
+          <p className="eyebrow">
+            Le rideau se lève bientôt
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Magnetic>
-              <Link
-                href="/dates"
-                className="group inline-flex items-center gap-2 rounded-full bg-gold-500 px-7 py-3.5 text-sm font-medium text-noir-900 transition-colors duration-300 hover:bg-gold-400"
-              >
-                <Ticket size={16} aria-hidden />
-                Voir les dates
-                <ArrowUpRight
-                  size={16}
-                  aria-hidden
-                  className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                />
-              </Link>
-            </Magnetic>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium text-ivory ring-1 ring-ivory/35 transition-colors duration-300 hover:bg-ivory/10"
-            >
-              Nous écrire
-            </Link>
-          </div>
+        </ScrollReveal>
+        <TextReveal
+          as="h2"
+          className="mx-auto mt-8 max-w-4xl font-display text-[clamp(2.2rem,5.5vw,4.5rem)] font-normal leading-[1.02] text-ink"
+          delay={0.05}
+        >
+          Venez rire de vos petites voix intérieures.
+        </TextReveal>
+        <ScrollReveal
+          delay={0.2}
+          className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-5"
+        >
+          <Magnetic>
+            <FrameButton href="/dates" variant="gold">
+              Voir les dates
+            </FrameButton>
+          </Magnetic>
+          <UnderlineLink href="/contact" withArrow className="text-stone-600">
+            Nous écrire
+          </UnderlineLink>
         </ScrollReveal>
       </div>
     </section>

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowUpRight, Clock, Users, Sparkles } from "lucide-react";
+import { Clock, Users, Sparkles } from "lucide-react";
 
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig, canonicalUrl } from "@/lib/site-config";
@@ -11,14 +10,12 @@ import { faq } from "@/data/faq";
 import { Header } from "@/components/public/header";
 import { Footer } from "@/components/public/footer";
 import { PageHero } from "@/components/public/page-hero";
-import { SectionHeading } from "@/components/public/section-heading";
 import { VideoShowcase } from "@/components/public/video-showcase";
-import { ServiceCard } from "@/components/public/service-card";
 import { BeneficesGrid } from "@/components/public/benefices-grid";
-import { PersonnageCard } from "@/components/public/personnage-card";
+import { PersonnagesGrid } from "@/components/public/personnages-grid";
 import { FaqAccordion } from "@/components/public/faq-accordion";
 import { CtaBandeau } from "@/components/public/cta-bandeau";
-import { Button } from "@/components/ui/button";
+import { UnderlineLink } from "@/components/ui/gallery";
 
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { StaggerReveal, StaggerItem } from "@/components/motion/stagger-reveal";
@@ -75,7 +72,7 @@ const faitsCles = [
 ] as const;
 
 export default function SpectaclePage() {
-  const teaserPersonnages = personnages.slice(0, 3);
+  const teaserPersonnages = personnages.slice(0, 4);
 
   return (
     <>
@@ -87,61 +84,75 @@ export default function SpectaclePage() {
           title={
             <>
               Un spectacle où vos{" "}
-              <span className="italic-display gradient-ink">personnages</span> montent
-              sur scène.
+              <span className="italic-display text-gold-700">personnages</span> montent sur scène.
             </>
           }
           intro="Humour, improvisation et thérapie des parties : Maxxou donne corps aux voix qui nous habitent. Le Critique, l'Anxieux, le Perfectionniste, l'Enfant… on les reconnaît, on en rit — et on les regarde, enfin, avec tendresse."
         />
 
         {/* ───────── Intro éditoriale + faits clés */}
-        <section className="relative bg-paper py-24 lg:py-32">
-          <div className="container-narrow">
-            <ScrollReveal>
-              <p className="eyebrow">Le concept</p>
-              <h2 className="fluid-h2 mt-4 text-ink">
-                Tous les personnages dans votre tête,{" "}
-                <span className="italic-display gradient-navy">réunis pour une soirée</span>.
-              </h2>
-            </ScrollReveal>
+        <section className="border-b border-ink/10 bg-ivory">
+          <div className="container-gallery py-24 lg:py-32">
+            <div className="grid gap-12 lg:grid-cols-12">
+              <ScrollReveal className="lg:col-span-5">
+                <p className="eyebrow">
+                  Le concept
+                </p>
+                <h2 className="mt-5 font-display text-[clamp(1.9rem,3.5vw,3rem)] font-normal leading-tight text-ink">
+                  Tous les personnages dans votre tête,{" "}
+                  <span className="italic-display text-gold-700">réunis pour une soirée</span>.
+                </h2>
+              </ScrollReveal>
 
-            <ScrollReveal delay={0.05} className="mt-8 space-y-6 text-lg leading-relaxed text-stone-600">
-              <p>
-                On a tous une petite assemblée intérieure. Une part qui juge, une part
-                qui s&apos;inquiète, une part qui rêve, une part qui sabote au dernier
-                moment. La <strong className="font-medium text-ink">thérapie des parties</strong>{" "}
-                — inspirée de l&apos;Internal Family Systems — propose une idée simple et
-                réconfortante&nbsp;: aucune de ces voix n&apos;est notre ennemie. Chacune,
-                à sa manière maladroite, essaie de nous protéger.
-              </p>
-              <p>
-                Maxxou s&apos;empare de cette matière avec humour. Il incarne tour à tour
-                ces personnages, les fait dialoguer, les pousse dans leurs retranchements
-                — et nous fait rire de nos mécanismes les plus intimes. Pas de jargon, pas
-                de prérequis&nbsp;: tout passe par le rire et l&apos;émotion.
-              </p>
-              <p>
-                À cela s&apos;ajoute une <strong className="font-medium text-ink">part
-                d&apos;improvisation</strong> à chaque représentation. La salle réagit,
-                propose, embarque — et le spectacle se réinvente sous nos yeux. On vient
-                pour rire. On repart plus léger, et avec un autre regard sur soi.
-              </p>
-            </ScrollReveal>
+              <ScrollReveal
+                delay={0.05}
+                className="space-y-6 text-base leading-relaxed text-stone-600 lg:col-span-7"
+              >
+                <p>
+                  On a tous une petite assemblée intérieure. Une part qui juge, une part qui
+                  s&apos;inquiète, une part qui rêve, une part qui sabote au dernier moment. La{" "}
+                  <strong className="font-medium text-ink">thérapie des parties</strong> — inspirée
+                  de l&apos;Internal Family Systems — propose une idée simple et réconfortante :
+                  aucune de ces voix n&apos;est notre ennemie. Chacune, à sa manière maladroite,
+                  essaie de nous protéger.
+                </p>
+                <p>
+                  Maxxou s&apos;empare de cette matière avec humour. Il incarne tour à tour ces
+                  personnages, les fait dialoguer, les pousse dans leurs retranchements — et nous
+                  fait rire de nos mécanismes les plus intimes. Pas de jargon, pas de prérequis :
+                  tout passe par le rire et l&apos;émotion.
+                </p>
+                <p>
+                  À cela s&apos;ajoute une{" "}
+                  <strong className="font-medium text-ink">part d&apos;improvisation</strong> à
+                  chaque représentation. La salle réagit, propose, embarque — et le spectacle se
+                  réinvente sous nos yeux. On vient pour rire. On repart plus léger, et avec un
+                  autre regard sur soi.
+                </p>
+              </ScrollReveal>
+            </div>
 
-            <StaggerReveal className="mt-14 grid gap-5 sm:grid-cols-3">
-              {faitsCles.map((fait) => (
-                <StaggerItem key={fait.label} className="h-full">
-                  <div className="hover-lift flex h-full flex-col rounded-2xl border border-noir-900/10 bg-bone/60 p-6">
-                    <span className="grid h-11 w-11 place-items-center rounded-full bg-noir-900/[0.04] text-gold-700 ring-1 ring-noir-900/10">
-                      <fait.icon size={20} aria-hidden />
+            <StaggerReveal className="mt-16 grid grid-cols-1 border-t border-ink/10 sm:grid-cols-3">
+              {faitsCles.map((fait, i) => (
+                <StaggerItem
+                  key={fait.label}
+                  as="article"
+                  className="border-b border-ink/10 py-10 sm:px-6 sm:[&:not(:first-child)]:border-l sm:[&:not(:first-child)]:border-l-ink/10"
+                >
+                  <div className="flex items-baseline gap-4">
+                    <span className="font-display text-sm tabular-nums text-gold-700">
+                      {String(i + 1).padStart(2, "0")}
                     </span>
-                    <p className="eyebrow mt-5">{fait.label}</p>
-                    <p className="mt-2 font-display text-xl leading-snug text-ink">
-                      {fait.value}
-                    </p>
-                    <p className="mt-3 text-sm leading-relaxed text-stone-500">
-                      {fait.detail}
-                    </p>
+                    <div>
+                      <fait.icon size={20} aria-hidden className="text-stone-500" />
+                      <p className="mt-3 text-[0.74rem] font-medium uppercase tracking-[0.2em] text-stone-500">
+                        {fait.label}
+                      </p>
+                      <p className="mt-2 font-display text-xl leading-snug text-ink">
+                        {fait.value}
+                      </p>
+                      <p className="mt-3 text-sm leading-relaxed text-stone-600">{fait.detail}</p>
+                    </div>
                   </div>
                 </StaggerItem>
               ))}
@@ -153,19 +164,51 @@ export default function SpectaclePage() {
         <VideoShowcase />
 
         {/* ───────── Ce que propose Maxxou */}
-        <section className="relative bg-bone py-24 lg:py-32">
-          <div className="container-soft">
-            <ScrollReveal className="mb-14 max-w-2xl">
-              <SectionHeading
-                eyebrow="Ce que propose Maxxou"
-                title="Réserver, inviter, collaborer."
-                intro="Le seul-en-scène en salle, des interventions sur-mesure pour entreprises et écoles, et des partenariats pour aller plus loin."
-              />
+        <section className="border-b border-ink/10 bg-ivory">
+          <div className="container-gallery py-24 lg:py-32">
+            <ScrollReveal className="mb-16 max-w-2xl">
+              <p className="eyebrow">
+                Ce que propose Maxxou
+              </p>
+              <h2 className="mt-5 font-display text-[clamp(1.9rem,4vw,3.4rem)] font-normal leading-tight text-ink">
+                Réserver, inviter, collaborer.
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-stone-600">
+                Le seul-en-scène en salle, des interventions sur-mesure pour entreprises et écoles,
+                et des partenariats pour aller plus loin.
+              </p>
             </ScrollReveal>
-            <StaggerReveal className="grid gap-6 md:grid-cols-3">
-              {services.map((s) => (
-                <StaggerItem key={s.slug} className="h-full">
-                  <ServiceCard service={s} />
+
+            <StaggerReveal className="grid grid-cols-1 gap-px border border-ink/10 bg-ink/10 md:grid-cols-3">
+              {services.map((s, i) => (
+                <StaggerItem
+                  key={s.slug}
+                  as="article"
+                  className="group flex flex-col bg-ivory p-8 transition-colors duration-300 hover:bg-paper"
+                >
+                  <span className="font-display text-sm tabular-nums text-gold-700">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="mt-4 font-display text-2xl leading-tight text-ink transition-colors group-hover:text-gold-800">
+                    {s.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-stone-600">{s.summary}</p>
+                  <ul className="mt-6 space-y-2.5 border-t border-ink/10 pt-6">
+                    {s.points.map((point) => (
+                      <li
+                        key={point}
+                        className="flex gap-3 text-sm leading-snug text-stone-600"
+                      >
+                        <span aria-hidden className="mt-2 h-px w-3 shrink-0 bg-gold-600" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-8">
+                    <UnderlineLink href={`/contact?sujet=${s.slug}`} withArrow className="text-ink">
+                      {s.cta}
+                    </UnderlineLink>
+                  </div>
                 </StaggerItem>
               ))}
             </StaggerReveal>
@@ -173,80 +216,66 @@ export default function SpectaclePage() {
         </section>
 
         {/* ───────── Pourquoi ça fait du bien */}
-        <section className="relative overflow-hidden bg-paper py-24 lg:py-32">
-          <div aria-hidden className="aurora opacity-50" />
-          <div className="container-soft relative">
-            <ScrollReveal className="mb-14 max-w-2xl">
-              <SectionHeading
-                eyebrow="Pourquoi ça fait du bien"
-                title="Du rire, et un peu de soi en plus."
-                intro="On vient pour rire. On repart plus léger — et avec un autre regard sur ses propres mécanismes."
-              />
+        <section className="border-b border-ink/10 bg-paper">
+          <div className="container-gallery py-24 lg:py-32">
+            <ScrollReveal className="mb-16 max-w-2xl">
+              <p className="eyebrow">
+                Pourquoi ça fait du bien
+              </p>
+              <h2 className="mt-5 font-display text-[clamp(1.9rem,4vw,3.4rem)] font-normal leading-tight text-ink">
+                Du rire, et un peu de soi en plus.
+              </h2>
             </ScrollReveal>
             <BeneficesGrid />
           </div>
         </section>
 
-        {/* ───────── Teaser personnages (dark) */}
-        <section className="section-noir grain relative overflow-hidden py-24 lg:py-32">
-          <div aria-hidden className="aurora opacity-30" />
-          <div
-            aria-hidden
-            className="fil-grid pointer-events-none absolute inset-0 opacity-40"
-          />
-          <div className="container-soft relative">
-            <div className="mb-14 grid gap-8 lg:grid-cols-12 lg:items-end">
+        {/* ───────── Teaser personnages */}
+        <section className="border-b border-ink/10 bg-ivory">
+          <div className="container-gallery py-24 lg:py-32">
+            <div className="mb-16 grid gap-10 lg:grid-cols-12 lg:items-end">
               <ScrollReveal className="lg:col-span-8">
-                <SectionHeading
-                  light
-                  eyebrow="La troupe intérieure"
-                  title={
-                    <>
-                      Faites connaissance avec{" "}
-                      <span className="italic-display text-gold-300">vos parts</span>.
-                    </>
-                  }
-                  intro="Le Critique, l'Anxieux, le Perfectionniste et les autres : chaque personnage incarne une facette de nous-mêmes. Ils ont chacun leur réplique, leur humeur — et, derrière, une intention bien plus douce qu'il n'y paraît."
-                />
+                <p className="eyebrow">
+                  La troupe intérieure
+                </p>
+                <h2 className="mt-5 max-w-xl font-display text-[clamp(1.9rem,4vw,3.4rem)] font-normal leading-tight text-ink">
+                  Faites connaissance avec{" "}
+                  <span className="italic-display text-gold-700">vos parts</span>.
+                </h2>
               </ScrollReveal>
               <ScrollReveal delay={0.05} className="lg:col-span-4 lg:text-right">
-                <Button asChild variant="outlineLight" size="md">
-                  <Link href="/personnages">
-                    Rencontrer toute la troupe
-                    <ArrowUpRight size={16} aria-hidden />
-                  </Link>
-                </Button>
+                <UnderlineLink href="/personnages" withArrow className="text-stone-600">
+                  Toute la troupe
+                </UnderlineLink>
               </ScrollReveal>
             </div>
-            <StaggerReveal className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {teaserPersonnages.map((p) => (
-                <StaggerItem key={p.slug} className="h-full">
-                  <PersonnageCard personnage={p} />
-                </StaggerItem>
-              ))}
-            </StaggerReveal>
+            <PersonnagesGrid personnages={teaserPersonnages} />
           </div>
         </section>
 
         {/* ───────── FAQ */}
-        <section className="relative bg-paper py-24 lg:py-32">
-          <div className="container-soft grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <ScrollReveal className="lg:col-span-5">
-              <SectionHeading
-                eyebrow="Questions fréquentes"
-                title="Tout ce qu'il faut savoir."
-                intro="Spectacle ou séance de thérapie, durée, âge, réservation… Une autre question ? Écrivez-moi, je réponds rapidement."
-              />
-              <Link
-                href="/contact"
-                className="mt-8 hidden items-center gap-2 text-sm font-medium text-gold-700 hover:text-gold-800 lg:inline-flex"
-              >
-                Poser une question
-                <ArrowUpRight size={15} aria-hidden />
-              </Link>
+        <section className="border-b border-ink/10 bg-paper">
+          <div className="container-gallery grid grid-cols-1 gap-12 py-24 lg:grid-cols-12 lg:gap-16 lg:py-32">
+            <ScrollReveal className="lg:col-span-4">
+              <p className="eyebrow">
+                Questions fréquentes
+              </p>
+              <h2 className="mt-5 font-display text-[clamp(1.9rem,3.5vw,3rem)] font-normal leading-tight text-ink">
+                Tout ce qu&apos;il faut savoir.
+              </h2>
+              <p className="mt-6 max-w-xs text-sm leading-relaxed text-stone-600">
+                Spectacle ou séance de thérapie, durée, âge, réservation… Une autre question ?
+              </p>
+              <div className="mt-8">
+                <UnderlineLink href="/contact" withArrow className="text-ink">
+                  Poser une question
+                </UnderlineLink>
+              </div>
             </ScrollReveal>
-            <div className="lg:col-span-7">
-              <FaqAccordion entries={faq} />
+            <div className="lg:col-span-7 lg:col-start-6">
+              <ScrollReveal>
+                <FaqAccordion entries={faq} />
+              </ScrollReveal>
             </div>
           </div>
         </section>

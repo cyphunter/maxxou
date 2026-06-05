@@ -11,6 +11,10 @@ type RenderOgOpts = {
   footerRight?: string;
 };
 
+/**
+ * Carte sociale « galerie » : fond ivoire, cartel anthracite, filet 1px en
+ * cadre comme un passe-partout de musée, l'or en touche unique.
+ */
 export function renderOgImage({
   eyebrow,
   title,
@@ -26,103 +30,87 @@ export function renderOgImage({
         style={{
           width: "100%",
           height: "100%",
-          background: "linear-gradient(135deg, #0b1020 0%, #15203f 58%, #1c2c54 100%)",
-          padding: 72,
+          background: "#fcfaf5",
+          padding: 64,
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          color: "#f3ecde",
-          fontFamily: "Georgia, serif",
-          position: "relative",
         }}
       >
         <div
           style={{
-            position: "absolute",
-            top: -260,
-            left: 320,
-            width: 720,
-            height: 720,
-            background: "radial-gradient(circle, rgba(227, 175, 59, 0.32), transparent 62%)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage:
-              "linear-gradient(rgba(227, 175, 59, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(227, 175, 59, 0.05) 1px, transparent 1px)",
-            backgroundSize: "56px 56px",
-          }}
-        />
-
-        {/* En-tête : monogramme + nom */}
-        <div style={{ display: "flex", alignItems: "center", gap: 22, position: "relative" }}>
-          <div
-            style={{
-              width: 76,
-              height: 76,
-              borderRadius: 38,
-              background: "#e3af3b",
-              color: "#10182f",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 40,
-              fontWeight: 600,
-              letterSpacing: -1,
-            }}
-          >
-            M
-          </div>
-          <div
-            style={{
-              fontSize: 30,
-              fontWeight: 500,
-              letterSpacing: 0.5,
-              fontFamily: "system-ui, sans-serif",
-            }}
-          >
-            {siteConfig.name}
-          </div>
-        </div>
-
-        {/* Titre */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 24, position: "relative" }}>
-          <div
-            style={{
-              fontSize: 18,
-              letterSpacing: 5,
-              color: "#f5dd97",
-              textTransform: "uppercase",
-              fontWeight: 700,
-              fontFamily: "system-ui, sans-serif",
-            }}
-          >
-            {eyebrow}
-          </div>
-          <div style={{ fontSize: 66, lineHeight: 1.08, letterSpacing: -1.5, maxWidth: 1000 }}>
-            {title}
-          </div>
-        </div>
-
-        {/* Pied */}
-        <div
-          style={{
+            flex: 1,
             display: "flex",
+            flexDirection: "column",
             justifyContent: "space-between",
-            alignItems: "flex-end",
-            fontSize: 24,
-            color: "#d8c8ab",
-            fontFamily: "system-ui, sans-serif",
-            position: "relative",
+            border: "1px solid rgba(32, 32, 31, 0.18)",
+            padding: "56px 60px",
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <span style={{ width: 6, height: 6, borderRadius: 3, background: "#e3af3b" }} />
-            {leftText}
+          {/* En-tête : wordmark */}
+          <div style={{ display: "flex", alignItems: "baseline" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "baseline",
+                fontSize: 34,
+                fontFamily: "Georgia, serif",
+                color: "#20201f",
+                letterSpacing: -0.5,
+              }}
+            >
+              {siteConfig.shortName}
+              <span style={{ color: "#c4902a", marginLeft: 3 }}>.</span>
+            </div>
           </div>
-          <div>{rightText}</div>
+
+          {/* Titre */}
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <div
+              style={{
+                display: "flex",
+                fontSize: 19,
+                letterSpacing: 7,
+                color: "#6a6962",
+                textTransform: "uppercase",
+                fontFamily: "system-ui, sans-serif",
+                marginBottom: 26,
+              }}
+            >
+              {eyebrow}
+            </div>
+            <div
+              style={{
+                display: "flex",
+                fontSize: 64,
+                lineHeight: 1.05,
+                letterSpacing: -1.5,
+                color: "#20201f",
+                maxWidth: 980,
+                fontFamily: "Georgia, serif",
+              }}
+            >
+              {title}
+            </div>
+          </div>
+
+          {/* Pied */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+              fontSize: 22,
+              color: "#6a6962",
+              fontFamily: "system-ui, sans-serif",
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <span
+                style={{ width: 8, height: 8, background: "#e3af3b", marginRight: 12, display: "flex" }}
+              />
+              {leftText}
+            </div>
+            <div style={{ display: "flex" }}>{rightText}</div>
+          </div>
         </div>
       </div>
     ),

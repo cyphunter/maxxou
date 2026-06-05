@@ -1,13 +1,12 @@
 "use client";
 
 import { useId, useState, useTransition } from "react";
-import { Check, Loader2, Send } from "lucide-react";
+import { Check, Loader2 } from "lucide-react";
 import { sendContactMessage } from "@/lib/actions/contact";
 import { REQUEST_TYPES, type ContactInput, type RequestType } from "@/lib/schemas/contact";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select } from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/site-config";
 
 type Status =
@@ -46,19 +45,21 @@ export function ContactForm({ defaultRequestType }: { defaultRequestType?: Reque
 
   if (status.kind === "success") {
     return (
-      <div className="rounded-2xl bg-navy-900 p-8 text-ivory ring-1 ring-gold-500/40 sm:p-10">
-        <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-gold-500 text-noir-900">
+      <div className="border border-ink/15 bg-paper p-8 sm:p-10">
+        <div className="inline-flex h-12 w-12 items-center justify-center bg-ink text-ivory">
           <Check size={22} aria-hidden />
         </div>
-        <h2 className="mt-6 font-display text-2xl text-ivory">Message bien reçu, merci !</h2>
-        <p className="mt-3 text-cream-100/85">
+        <h2 className="mt-6 font-display text-2xl font-normal text-ink">
+          Message bien reçu, merci !
+        </h2>
+        <p className="mt-3 leading-relaxed text-stone-600">
           Je reviens vers vous très rapidement. En attendant, suivez les coulisses sur Instagram
           ({siteConfig.instagramHandle}) — c&apos;est là que tout se passe.
         </p>
         <button
           type="button"
           onClick={() => setStatus({ kind: "idle" })}
-          className="mt-6 inline-flex items-center gap-2 text-sm text-gold-300 underline-offset-4 hover:underline"
+          className="mt-6 inline-flex items-center gap-2 text-[0.8rem] font-medium uppercase tracking-[0.16em] text-ink underline-offset-4 hover:underline"
         >
           Envoyer une autre demande
         </button>
@@ -162,15 +163,12 @@ export function ContactForm({ defaultRequestType }: { defaultRequestType?: Reque
           type="checkbox"
           name="consent"
           required
-          className="mt-1 h-4 w-4 rounded border-noir-900/30 text-gold-600 focus:ring-gold-500"
+          className="mt-1 h-4 w-4 rounded-none border-ink/30 text-ink focus:ring-ink"
         />
         <span>
           J&apos;accepte que mes données soient utilisées pour être recontacté(e) au sujet de ma
           demande. Voir la{" "}
-          <a
-            href="/confidentialite"
-            className="font-medium text-gold-700 underline-offset-4 hover:underline"
-          >
+          <a href="/confidentialite" className="text-gold-700 underline-offset-4 hover:underline">
             politique de confidentialité
           </a>
           .
@@ -179,17 +177,15 @@ export function ContactForm({ defaultRequestType }: { defaultRequestType?: Reque
       {errors.consent ? <p className="text-xs text-error">{errors.consent}</p> : null}
 
       {status.kind === "error" ? (
-        <div role="alert" className="rounded-md bg-error/10 p-4 text-sm text-error">
+        <div role="alert" className="border border-error/40 bg-error/5 p-4 text-sm text-error">
           {status.message}
         </div>
       ) : null}
 
-      <Button
+      <button
         type="submit"
-        size="lg"
-        variant="accent"
         disabled={isSubmitting}
-        className="w-full sm:w-auto"
+        className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-none bg-ink px-7 text-[0.78rem] font-medium uppercase tracking-[0.18em] text-ivory transition-colors hover:bg-noir-700 disabled:opacity-60 sm:w-auto"
       >
         {isSubmitting ? (
           <>
@@ -197,12 +193,9 @@ export function ContactForm({ defaultRequestType }: { defaultRequestType?: Reque
             Envoi en cours…
           </>
         ) : (
-          <>
-            <Send size={16} aria-hidden />
-            Envoyer ma demande
-          </>
+          "Envoyer ma demande"
         )}
-      </Button>
+      </button>
     </form>
   );
 }
@@ -217,8 +210,11 @@ function FieldLabel({
   children: React.ReactNode;
 }) {
   return (
-    <label htmlFor={htmlFor} className="block text-sm font-medium text-ink">
-      {children} {required ? <span className="text-error">*</span> : null}
+    <label
+      htmlFor={htmlFor}
+      className="block text-[0.78rem] font-medium uppercase tracking-[0.12em] text-stone-600"
+    >
+      {children} {required ? <span className="text-gold-700">*</span> : null}
     </label>
   );
 }

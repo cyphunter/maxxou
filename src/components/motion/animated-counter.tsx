@@ -1,70 +1,76 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useInView, useReducedMotion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { useReducedMotion } from "framer-motion";
 
 type AnimatedCounterProps = {
-  to: number;
+  value: number;
+  prefix?: string;
+  suffix?: string;
+  decimals?: number;
+  /** Durée du décompte (ms). */
   duration?: number;
   className?: string;
-  suffix?: string;
-  prefix?: string;
-  decimals?: number;
 };
 
 /**
- * Compteur animé au scroll (cubic ease-out). Respecte prefers-reduced-motion
- * → valeur finale directe sans animation.
+ * Compteur qui s'incrémente jusqu'à `value` quand il entre dans le viewport
+ * (easing cubic-out). Respecte prefers-reduced-motion : affiche directement
+ * la valeur finale.
  */
 export function AnimatedCounter({
-  to,
-  duration = 1.8,
-  className,
-  suffix = "",
+  value,
   prefix = "",
+  suffix = "",
   decimals = 0,
+  duration = 1600,
+  className,
 }: AnimatedCounterProps) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
   const reduce = useReducedMotion();
-  const [value, setValue] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const started = useRef(false);
+  const [display, setDisplay] = useState(reduce ? value : 0);
 
   useEffect(() => {
-    if (!isInView) return;
     if (reduce) {
-      setValue(to);
+      setDisplay(value);
       return;
     }
-    let raf = 0;
-    const start = performance.now();
-    const ms = duration * 1000;
-    const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / ms);
-      const eased = 1 - Math.pow(1 - t, 3);
-      setValue(to * eased);
-      if (t < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [isInView, to, duration, reduce]);
+    const el = ref.current;
+    if (!el) return;
 
-  const display =
-    decimals > 0
-      ? value.toLocaleString("fr-FR", {
-          minimumFractionDigits: decimals,
-          maximumFractionDigits: decimals,
-        })
-      : Math.round(value).toLocaleString("fr-FR");
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting && !started.current) {
+            started.current = true;
+            const start = performance.now();
+            const tick = (now: number) => {
+              const t = Math.min(1, (now - start) / duration);
+              const eased = 1 - Math.pow(1 - t, 3);
+              setDisplay(value * eased);
+              if (t < 1) requestAnimationFrame(tick);
+              else setDisplay(value);
+            };
+            requestAnimationFrame(tick);
+          }
+        }
+      },
+      { threshold: 0.4 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [reduce, value, duration]);
+
+  const formatted = display.toLocaleString("fr-FR", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  });
 
   return (
-    <span
-      ref={ref}
-      className={cn("tabular-nums", className)}
-      aria-label={`${prefix}${to}${suffix}`}
-    >
+    <span ref={ref} className={className}>
       {prefix}
-      {display}
+      {formatted}
       {suffix}
     </span>
   );

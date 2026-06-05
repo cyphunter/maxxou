@@ -1,65 +1,32 @@
-import Link from "next/link";
-import { MapPin, Ticket, Clock } from "lucide-react";
 import { representations, type Representation } from "@/data/dates";
-import { cn } from "@/lib/utils";
+import { StaggerReveal, StaggerItem } from "@/components/motion/stagger-reveal";
+import { UnderlineLink } from "@/components/ui/gallery";
 
 const MOIS = [
   "janv.", "févr.", "mars", "avr.", "mai", "juin",
   "juil.", "août", "sept.", "oct.", "nov.", "déc.",
 ];
-const JOURS = ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."];
 
-function formatDate(iso: string) {
-  const [y, m, d] = iso.split("-").map(Number);
-  const date = new Date(Date.UTC(y, (m ?? 1) - 1, d ?? 1));
+function formatDate(iso: string): { day: string; month: string; year: string } {
+  const [y, m, d] = iso.split("-");
   return {
-    weekday: JOURS[date.getUTCDay()],
-    day: String(d).padStart(2, "0"),
-    month: MOIS[(m ?? 1) - 1],
-    year: y,
+    day: d ?? "",
+    month: MOIS[Number(m) - 1] ?? "",
+    year: y ?? "",
   };
 }
 
-function StatusAction({ r }: { r: Representation }) {
-  if (r.status === "open") {
-    const href = r.ticketUrl && r.ticketUrl.length > 0 ? r.ticketUrl : "/contact?sujet=spectacle";
-    const external = href.startsWith("http");
-    return (
-      <Link
-        href={href}
-        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-        className="group/btn inline-flex items-center gap-2 rounded-full bg-gold-500 px-5 py-2.5 text-sm font-medium text-noir-900 transition-colors hover:bg-gold-400"
-      >
-        <Ticket size={15} aria-hidden />
-        Réserver
-      </Link>
-    );
-  }
-  if (r.status === "soon") {
-    return (
-      <span className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-gold-700 ring-1 ring-gold-600/40">
-        <Clock size={15} aria-hidden />
-        Bientôt
-      </span>
-    );
-  }
-  if (r.status === "soldout") {
-    return (
-      <span className="inline-flex items-center rounded-full bg-noir-900/[0.06] px-5 py-2.5 text-sm font-medium text-stone-500 ring-1 ring-noir-900/10">
-        Complet
-      </span>
-    );
-  }
-  return (
-    <span className="inline-flex items-center rounded-full px-5 py-2.5 text-sm text-stone-400">
-      Terminé
-    </span>
-  );
-}
+const STATUS_LABEL: Record<Representation["status"], string> = {
+  open: "Réserver",
+  soon: "Bientôt",
+  soldout: "Complet",
+  past: "Passé",
+};
 
 /**
- * Liste des représentations. `limit` pour un aperçu (home). `showPast` pour
- * inclure les dates passées (archives).
+ * Liste des représentations, style galerie : rangées séparées par des filets,
+ * date en gros chiffres, lieu, et action en lien-cartel. `limit` pour un aperçu
+ * (home) ; `showPast` pour inclure les archives.
  */
 export function DatesList({
   limit,
@@ -77,7 +44,7 @@ export function DatesList({
 
   if (list.length === 0) {
     return (
-      <p className="rounded-2xl bg-ivory p-8 text-center text-stone-500 ring-1 ring-noir-900/10">
+      <p className="border border-ink/15 bg-ivory p-8 text-center text-sm leading-relaxed text-stone-500">
         Les prochaines dates seront annoncées très bientôt. Inscrivez-vous à la newsletter pour
         être prévenu·e en premier.
       </p>
@@ -85,52 +52,69 @@ export function DatesList({
   }
 
   return (
-    <ol className="overflow-hidden rounded-2xl bg-ivory ring-1 ring-noir-900/10">
-      {list.map((r, i) => {
-        const f = formatDate(r.date);
+    <StaggerReveal className="border-t border-ink/15" stagger={0.07}>
+      {list.map((r) => {
+        const { day, month, year } = formatDate(r.date);
+        const reservable = r.status === "open";
         const dim = r.status === "past";
+        const href =
+          r.ticketUrl && r.ticketUrl.length > 0 ? r.ticketUrl : "/contact?sujet=spectacle";
         return (
-          <li
+          <StaggerItem
             key={r.id}
-            className={cn(
-              "flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:gap-6 sm:p-6",
-              i > 0 && "border-t border-noir-900/10",
-              dim && "opacity-60",
-            )}
+            as="article"
+            className={`group grid grid-cols-1 items-center gap-4 border-b border-ink/15 py-7 sm:grid-cols-12 sm:gap-6 ${
+              dim ? "opacity-55" : ""
+            }`}
           >
             {/* Date */}
-            <div className="flex shrink-0 items-baseline gap-2 sm:w-28 sm:flex-col sm:items-center sm:gap-0 sm:text-center">
-              <span className="hidden text-xs uppercase tracking-[0.18em] text-stone-400 sm:block">
-                {f.weekday}
+            <div className="flex items-baseline gap-3 sm:col-span-3">
+              <span className="font-display text-3xl leading-none tabular-nums text-ink">
+                {day}
               </span>
-              <span className="font-display text-4xl leading-none text-ink">{f.day}</span>
-              <span className="text-sm uppercase tracking-[0.16em] text-gold-700">
-                {f.month} {f.year}
+              <span className="text-sm uppercase tracking-[0.14em] text-stone-500">
+                {month} {year}
+                {r.time ? ` · ${r.time}` : ""}
               </span>
             </div>
 
-            {/* Filet vertical */}
-            <span aria-hidden className="hidden h-12 w-px bg-noir-900/10 sm:block" />
-
-            {/* Infos */}
-            <div className="min-w-0 flex-1">
-              <h3 className="font-display text-xl text-ink">{r.venue}</h3>
-              <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-stone-600">
-                <MapPin size={14} aria-hidden className="text-gold-700" />
-                <span className="font-medium text-ink">{r.city}</span>
-                {r.address ? <span className="text-stone-500">· {r.address}</span> : null}
-                {r.time ? <span className="text-stone-500">· {r.time}</span> : null}
+            {/* Lieu */}
+            <div className="sm:col-span-6">
+              <p className="font-display text-lg leading-tight text-ink">
+                {r.city}
+                <span className="mx-2 text-stone-300">—</span>
+                <span className="text-stone-600">{r.venue}</span>
               </p>
-              {r.note ? <p className="mt-1 text-xs italic text-stone-500">{r.note}</p> : null}
+              {r.address ? (
+                <p className="mt-1 text-[0.82rem] text-stone-500">{r.address}</p>
+              ) : null}
+              {r.note ? (
+                <p className="mt-1 text-[0.78rem] uppercase tracking-[0.12em] text-gold-700">
+                  {r.note}
+                </p>
+              ) : null}
             </div>
 
             {/* Action */}
-            <div className="shrink-0 sm:ml-auto">
-              <StatusAction r={r} />
+            <div className="sm:col-span-3 sm:text-right">
+              {reservable ? (
+                <UnderlineLink
+                  href={href}
+                  withArrow
+                  external={Boolean(r.ticketUrl && r.ticketUrl.length > 0)}
+                  className="text-ink"
+                >
+                  {STATUS_LABEL[r.status]}
+                </UnderlineLink>
+              ) : (
+                <span className="inline-flex text-[0.82rem] font-medium uppercase tracking-[0.18em] text-stone-400">
+                  {STATUS_LABEL[r.status]}
+                </span>
+              )}
             </div>
-          </li>
+          </StaggerItem>
         );
       })}
-    </ol>
+    </StaggerReveal>
   );
 }

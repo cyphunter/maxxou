@@ -1,126 +1,86 @@
 import Link from "next/link";
-import { ArrowUpRight, Mail, MapPin, Instagram, Ticket } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
+import { UnderlineLink } from "@/components/ui/gallery";
 
 const year = new Date().getFullYear();
 
+/**
+ * Pied de page « galerie » : fond ivoire, filets 1px, trois colonnes
+ * (marque / explorer / contact) puis bandeau légal. Aucune ombre, aucun aplat
+ * sombre — la sobriété jusqu'au bas de page.
+ */
 export function Footer() {
   const { contact, social } = siteConfig;
 
   return (
-    <footer className="section-noir grain relative overflow-hidden">
-      <div aria-hidden className="aurora opacity-30" />
-      <div className="container-soft relative">
-        {/* Bloc haut : signature + CTA */}
-        <div className="grid gap-12 border-b border-ivory/10 py-16 lg:grid-cols-12 lg:py-20">
-          <div className="lg:col-span-6">
-            <p className="eyebrow eyebrow--light">Maxxou Officiel</p>
-            <p className="fluid-h3 mt-5 max-w-md font-display text-ivory">
-              Tous les personnages dans votre tête montent enfin{" "}
-              <span className="italic-display text-gold-300">sur scène</span>.
-            </p>
-            <Link
-              href="/dates"
-              className="group mt-8 inline-flex items-center gap-2 rounded-full bg-gold-500 px-6 py-3 text-sm font-medium text-noir-900 transition hover:bg-gold-400"
-            >
-              <Ticket size={16} aria-hidden />
-              Voir les prochaines dates
-              <ArrowUpRight
-                size={16}
-                aria-hidden
-                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              />
+    <footer className="border-t border-ink/10 bg-ivory">
+      <div className="container-gallery py-16 lg:py-20">
+        <div className="grid grid-cols-1 gap-12 border-b border-ink/10 pb-12 md:grid-cols-12">
+          {/* Marque */}
+          <div className="md:col-span-5">
+            <Link href="/" className="font-display text-2xl tracking-tight text-ink">
+              {siteConfig.name}
+              <span className="ml-0.5 text-gold-600">.</span>
             </Link>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-stone-500">
+              {siteConfig.baseline}.
+            </p>
+            {social.instagram ? (
+              <div className="mt-6">
+                <UnderlineLink
+                  href={social.instagram}
+                  external
+                  withArrow
+                  className="text-stone-600"
+                >
+                  Instagram {siteConfig.instagramUsername}
+                </UnderlineLink>
+              </div>
+            ) : null}
           </div>
 
-          <div className="grid grid-cols-2 gap-8 lg:col-span-6 lg:grid-cols-3">
-            {/* Navigation */}
-            <nav aria-label="Pied de page — navigation">
-              <p className="text-xs uppercase tracking-[0.2em] text-gold-300/80">Explorer</p>
-              <ul className="mt-4 space-y-3 text-sm text-cream-100/80">
-                <li>
-                  <Link href="/" className="transition-colors hover:text-gold-300">
-                    Accueil
-                  </Link>
+          {/* Navigation */}
+          <nav aria-label="Pied de page — navigation" className="md:col-span-4">
+            <p className="text-[0.72rem] font-medium uppercase tracking-[0.2em] text-stone-400">
+              Explorer
+            </p>
+            <ul className="mt-5 space-y-3">
+              <li>
+                <UnderlineLink href="/" className="tracking-[0.12em] text-stone-600">
+                  Accueil
+                </UnderlineLink>
+              </li>
+              {siteConfig.navigation.map((item) => (
+                <li key={item.href}>
+                  <UnderlineLink href={item.href} className="tracking-[0.12em] text-stone-600">
+                    {item.label}
+                  </UnderlineLink>
                 </li>
-                {siteConfig.navigation.map((item) => (
-                  <li key={item.href}>
-                    <Link href={item.href} className="transition-colors hover:text-gold-300">
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+              ))}
+            </ul>
+          </nav>
 
-            {/* Contact */}
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-gold-300/80">Contact</p>
-              <ul className="mt-4 space-y-3 text-sm text-cream-100/80">
-                <li>
-                  <a
-                    href={`mailto:${contact.email}`}
-                    className="inline-flex items-center gap-2 transition-colors hover:text-gold-300"
-                  >
-                    <Mail size={14} aria-hidden className="text-gold-400" />
-                    {contact.email}
-                  </a>
-                </li>
-                <li className="flex items-start gap-2">
-                  <MapPin size={14} aria-hidden className="mt-1 text-gold-400" />
-                  <span>{contact.serviceAreaLabel}</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Réseaux */}
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-gold-300/80">Réseaux</p>
-              <ul className="mt-4 space-y-3 text-sm text-cream-100/80">
-                {social.instagram ? (
-                  <li>
-                    <a
-                      href={social.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 transition-colors hover:text-gold-300"
-                    >
-                      <Instagram size={14} aria-hidden className="text-gold-400" />
-                      {siteConfig.instagramHandle}
-                    </a>
-                  </li>
-                ) : null}
-                {social.tiktok ? (
-                  <li>
-                    <a
-                      href={social.tiktok}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="transition-colors hover:text-gold-300"
-                    >
-                      TikTok
-                    </a>
-                  </li>
-                ) : null}
-                {social.youtube ? (
-                  <li>
-                    <a
-                      href={social.youtube}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="transition-colors hover:text-gold-300"
-                    >
-                      YouTube
-                    </a>
-                  </li>
-                ) : null}
-              </ul>
-            </div>
+          {/* Contact */}
+          <div className="md:col-span-3">
+            <p className="text-[0.72rem] font-medium uppercase tracking-[0.2em] text-stone-400">
+              Contact
+            </p>
+            <ul className="mt-5 space-y-3 text-sm text-stone-600">
+              <li>
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="transition-colors hover:text-ink"
+                >
+                  {contact.email}
+                </a>
+              </li>
+              <li>{contact.serviceAreaLabel}</li>
+            </ul>
           </div>
         </div>
 
-        {/* Bas : légal */}
-        <div className="flex flex-col gap-4 py-8 text-xs text-cream-100/55 sm:flex-row sm:items-center sm:justify-between">
+        {/* Bandeau légal */}
+        <div className="flex flex-col gap-4 pt-8 text-[0.78rem] text-stone-500 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {siteConfig.legalName} — {siteConfig.role}, {contact.city} &amp;{" "}
             {contact.secondaryCity}.
@@ -130,7 +90,7 @@ export function Footer() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="transition-colors hover:text-gold-300"
+                className="uppercase tracking-[0.12em] transition-colors hover:text-ink"
               >
                 {item.label}
               </Link>

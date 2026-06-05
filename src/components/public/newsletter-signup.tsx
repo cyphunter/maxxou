@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState, useTransition } from "react";
-import { Check, Loader2, Send } from "lucide-react";
+import { Check, Loader2 } from "lucide-react";
 import { subscribeNewsletter } from "@/lib/actions/newsletter";
 import { type NewsletterInput } from "@/lib/schemas/newsletter";
 import { Input } from "@/components/ui/input";
@@ -14,10 +14,11 @@ type Status =
   | { kind: "error"; message: string };
 
 /**
- * Inscription newsletter. `tone="dark"` pour fond sombre (bleu nuit / bordeaux).
- * Honeypot dédié `maxxou_news_hp`.
+ * Inscription newsletter, style galerie : champ à filet 1px + bouton anthracite
+ * en capitales. Honeypot dédié `maxxou_news_hp`. `tone` conservé pour
+ * compatibilité (la DA galerie est toujours claire).
  */
-export function NewsletterSignup({ tone = "dark" }: { tone?: "light" | "dark" }) {
+export function NewsletterSignup({ tone = "light" }: { tone?: "light" | "dark" }) {
   const id = useId();
   const dark = tone === "dark";
   const [pending, startTransition] = useTransition();
@@ -39,17 +40,13 @@ export function NewsletterSignup({ tone = "dark" }: { tone?: "light" | "dark" })
 
   if (status.kind === "success") {
     return (
-      <div
-        className={cn(
-          "flex items-center gap-3 rounded-2xl p-5 text-sm",
-          dark ? "bg-ivory/10 text-cream-100 ring-1 ring-gold-400/30" : "bg-success/10 text-success",
-        )}
-      >
-        <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold-500 text-noir-900">
+      <div className="flex items-center gap-3 border border-ink/15 bg-ivory p-5 text-sm text-stone-600">
+        <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center bg-ink text-ivory">
           <Check size={18} aria-hidden />
         </span>
         <p>
-          C&apos;est noté, merci ! Vous recevrez les prochaines dates et nouveautés en avant-première.
+          C&apos;est noté, merci ! Vous recevrez les prochaines dates et nouveautés en
+          avant-première.
         </p>
       </div>
     );
@@ -81,13 +78,12 @@ export function NewsletterSignup({ tone = "dark" }: { tone?: "light" | "dark" })
             autoComplete="email"
             placeholder="votre@email.fr"
             invalid={status.kind === "error"}
-            className={dark ? "bg-ivory/95" : undefined}
           />
         </div>
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex shrink-0 items-center justify-center gap-2 rounded-md bg-gold-500 px-6 py-3 text-sm font-medium text-noir-900 transition-colors hover:bg-gold-400 disabled:opacity-60"
+          className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-none bg-ink px-7 text-[0.78rem] font-medium uppercase tracking-[0.18em] text-ivory transition-colors hover:bg-noir-700 disabled:opacity-60"
         >
           {isSubmitting ? (
             <>
@@ -95,10 +91,7 @@ export function NewsletterSignup({ tone = "dark" }: { tone?: "light" | "dark" })
               Envoi…
             </>
           ) : (
-            <>
-              <Send size={16} aria-hidden />
-              S&apos;inscrire
-            </>
+            "S'inscrire"
           )}
         </button>
       </div>
@@ -106,25 +99,19 @@ export function NewsletterSignup({ tone = "dark" }: { tone?: "light" | "dark" })
       <label
         className={cn(
           "mt-3 flex items-start gap-2.5 text-xs",
-          dark ? "text-cream-100/70" : "text-stone-500",
+          dark ? "text-ivory/70" : "text-stone-500",
         )}
       >
         <input
           type="checkbox"
           name="consent"
           required
-          className="mt-0.5 h-4 w-4 rounded border-noir-900/30 text-gold-600 focus:ring-gold-500"
+          className="mt-0.5 h-4 w-4 rounded-none border-ink/30 text-ink focus:ring-ink"
         />
         <span>
           J&apos;accepte de recevoir les actualités de Maxxou Officiel par email. Désinscription
           en un clic à tout moment. Voir la{" "}
-          <a
-            href="/confidentialite"
-            className={cn(
-              "underline-offset-4 hover:underline",
-              dark ? "text-gold-300" : "text-gold-700",
-            )}
-          >
+          <a href="/confidentialite" className="text-gold-700 underline-offset-4 hover:underline">
             politique de confidentialité
           </a>
           .

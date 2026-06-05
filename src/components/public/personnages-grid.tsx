@@ -1,7 +1,5 @@
-"use client";
-
 /**
- * Grille « galerie de musée » des personnages (variante key="galerie").
+ * Grille « galerie de musée » des personnages.
  *
  * Chaque personnage = une œuvre : image carrée plein cadre en grayscale,
  * passant en couleur au survol. Sous l'image, un cartel minimaliste
@@ -19,9 +17,11 @@ import type { Personnage } from "@/data/personnages";
 
 type PersonnagesGridProps = {
   personnages: readonly Personnage[];
+  /** Rend la première image prioritaire (LCP) — utile en haut de page. */
+  priorityFirst?: boolean;
 };
 
-export function PersonnagesGrid({ personnages }: PersonnagesGridProps) {
+export function PersonnagesGrid({ personnages, priorityFirst = false }: PersonnagesGridProps) {
   return (
     <StaggerReveal
       className="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4"
@@ -36,8 +36,9 @@ export function PersonnagesGrid({ personnages }: PersonnagesGridProps) {
                 src={p.image}
                 alt={`Portrait du personnage ${p.name}`}
                 fill
+                priority={priorityFirst && i === 0}
                 sizes="(min-width: 1024px) 23vw, (min-width: 640px) 46vw, 92vw"
-                className="object-cover grayscale transition duration-700 ease-out group-hover:scale-[1.02] group-hover:grayscale-0 group-focus-visible:grayscale-0"
+                className="object-cover grayscale-[0.7] sepia-[0.15] transition duration-700 ease-out group-hover:scale-[1.02] group-hover:grayscale-0 group-hover:sepia-0 group-focus-visible:grayscale-0 group-focus-visible:sepia-0"
               />
 
               {/* Réplique révélée au survol (légende dévoilée) */}

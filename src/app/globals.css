@@ -3,14 +3,9 @@
 @theme {
   /* ─── Couleurs ─────────────────────────────────────────────────
      « Maxxou Officiel » — humoriste, improvisateur, thérapie des parties.
-     Sobre & élégant : fond clair beige + texte anthracite, profondeur
-     bleu nuit & bordeaux (rideau de scène), accents jaune doré
-     (projecteur, énergie, humour).
-
-     ⚠️ On conserve les NOMS de tokens hérités (paper / ivory / noir-* /
-     gold-* / stone-* / cream-*) pour que le design system existant
-     fonctionne sans réécriture — seules les VALEURS changent. Deux
-     échelles ajoutées : navy-* (bleu nuit) et wine-* (bordeaux).
+     DA validée « galerie minimaliste » : ivoire / anthracite, l'or en touche
+     infime. On conserve les NOMS de tokens hérités (paper / ivory / noir-* /
+     gold-* / stone-* / navy-* / wine-* …) pour ne pas casser le design system.
   */
 
   /* Fonds clairs — blanc cassé / beige très léger (papier de programme) */
@@ -37,7 +32,7 @@
   --color-stone-400: #8a897f;
   --color-stone-300: #a9a89d;
 
-  /* Bleu nuit — profondeur, sections sombres « scène de nuit » */
+  /* Bleu nuit — réservé (profondeur ponctuelle) */
   --color-navy-950: #0b1020;
   --color-navy-900: #10182f;
   --color-navy-800: #15203f;
@@ -48,7 +43,7 @@
   --color-navy-300: #9fb2d8;
   --color-navy-200: #c6d2e9;
 
-  /* Bordeaux — profondeur, rideau de scène, accents chauds */
+  /* Bordeaux — réservé (accent dramatique ponctuel) */
   --color-wine-950: #260a11;
   --color-wine-900: #380e18;
   --color-wine-800: #4b1320;
@@ -59,7 +54,7 @@
   --color-wine-300: #dd909d;
   --color-wine-200: #efc3cb;
 
-  /* Or / jaune doré — projecteur, énergie, humour (accent vif).
+  /* Or / jaune doré — touche d'accent unique (projecteur).
      gold-700/800 = assez sombres pour passer WCAG AA en texte sur fond clair. */
   --color-gold-300: #f5dd97;
   --color-gold-400: #efc862;
@@ -73,7 +68,7 @@
   --color-error: #b23b3b;
   --color-success: #3f7a4b;
 
-  --color-brand: #10182f;
+  --color-brand: #20201f;
   --color-brand-accent: #e3af3b;
 
   /* ─── Typographies (chargées via next/font dans layout.tsx) ── */
@@ -84,16 +79,7 @@
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-lg: 1rem;
-  --radius-xl: 1.75rem;
   --radius-pill: 9999px;
-
-  /* ─── Shadows ───────────────────────────────────────────────── */
-  --shadow-sm: 0 1px 2px 0 rgb(28 28 27 / 0.06);
-  --shadow-soft: 0 4px 24px -8px rgb(28 28 27 / 0.16);
-  --shadow-elevated: 0 24px 64px -16px rgb(28 28 27 / 0.26);
-  --shadow-cinema: 0 48px 96px -24px rgb(11 16 32 / 0.5);
-  --shadow-gold-glow: 0 0 40px rgb(227 175 59 / 0.32);
-  --shadow-gold-deep: 0 0 0 1px rgb(227 175 59 / 0.4), 0 24px 48px -16px rgb(227 175 59 / 0.3);
 
   /* ─── Easings ───────────────────────────────────────────────── */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -124,7 +110,7 @@
     font-family: var(--font-body);
     line-height: 1.6;
     text-wrap: pretty;
-    background-color: var(--color-paper);
+    background-color: var(--color-ivory);
     color: var(--color-ink);
   }
 
@@ -139,7 +125,6 @@
   :focus-visible {
     outline: 2px solid var(--color-gold-600);
     outline-offset: 3px;
-    border-radius: var(--radius-sm);
   }
 
   ::selection {
@@ -162,521 +147,48 @@
   }
 }
 
-/* ─── Typographie fluide ──────────────────────────────────────── */
-.fluid-display {
-  font-size: clamp(2.75rem, 7vw + 1rem, 7rem);
-  line-height: 0.98;
-  letter-spacing: -0.035em;
-}
-.fluid-h1 {
-  font-size: clamp(2.25rem, 5vw + 1rem, 5rem);
-  line-height: 1.04;
-  letter-spacing: -0.03em;
-}
-.fluid-h2 {
-  font-size: clamp(1.875rem, 3.4vw + 0.5rem, 3.5rem);
-  line-height: 1.07;
-  letter-spacing: -0.025em;
-}
-.fluid-h3 {
-  font-size: clamp(1.4rem, 2.2vw + 0.5rem, 2.1rem);
-  line-height: 1.15;
-}
-.fluid-lead {
-  font-size: clamp(1.0625rem, 0.4vw + 1rem, 1.3rem);
-  line-height: 1.62;
-}
-
-/* ─── Eyebrow (sur-titre) ─────────────────────────────────────── */
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  font-family: var(--font-body);
-  text-transform: uppercase;
-  font-size: 0.72rem;
-  letter-spacing: 0.24em;
-  font-weight: 600;
-  color: var(--color-gold-700);
-}
-.eyebrow::before {
-  content: "";
-  width: 1.75rem;
-  height: 1px;
-  background-color: var(--color-gold-600);
-}
-.eyebrow--light {
-  color: var(--color-gold-300);
-}
-.eyebrow--light::before {
-  background-color: var(--color-gold-400);
-}
-.eyebrow--center {
-  justify-content: center;
-}
-.eyebrow--center::after {
-  content: "";
-  width: 1.75rem;
-  height: 1px;
-  background-color: var(--color-gold-600);
-}
-.eyebrow--center.eyebrow--light::after {
-  background-color: var(--color-gold-400);
-}
-
-/* ─── Fraunces italique (accent display) ──────────────────────── */
+/* ─── Fraunces italique (mot d'accent display) ────────────────── */
 .italic-display {
   font-family: var(--font-display);
   font-style: italic;
   font-variation-settings: "SOFT" 100, "opsz" 144;
-}
-
-/* ─── Texte en dégradé ────────────────────────────────────────── */
-/* Or doré — RÉSERVÉ aux fonds SOMBRES (contraste OK sur navy/wine). */
-.gradient-gold {
-  background: linear-gradient(110deg, var(--color-gold-300) 0%, var(--color-gold-500) 50%, var(--color-gold-400) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  padding-inline-end: 0.12em;
-  margin-inline-end: -0.12em;
-}
-/* Dégradé bordeaux — mots d'accent sur fond CLAIR (contraste AA). */
-.gradient-ink {
-  background: linear-gradient(110deg, var(--color-wine-600) 0%, var(--color-wine-800) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  padding-inline-end: 0.12em;
-  margin-inline-end: -0.12em;
-}
-/* Dégradé bleu nuit — alternative d'accent sur fond clair (AA). */
-.gradient-navy {
-  background: linear-gradient(110deg, var(--color-navy-700) 0%, var(--color-navy-900) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  padding-inline-end: 0.12em;
-  margin-inline-end: -0.12em;
-}
-/* Sur fond clair, l'italique Fraunces déborde plus à droite. */
-.italic-display.gradient-gold,
-.italic-display.gradient-ink,
-.italic-display.gradient-navy {
-  padding-inline-end: 0.32em;
-  margin-inline-end: -0.32em;
+  padding-inline-end: 0.06em;
+  margin-inline-end: -0.06em;
 }
 
 /* ─── Containers ──────────────────────────────────────────────── */
-.container-soft {
-  width: 100%;
-  margin-inline: auto;
-  padding-inline: 1.5rem;
-  max-width: 80rem;
-}
-@media (min-width: 1024px) {
-  .container-soft { padding-inline: 2.5rem; }
-}
 .container-narrow {
   width: 100%;
   margin-inline: auto;
   padding-inline: 1.5rem;
   max-width: 52rem;
+  /* Filets de marge — cadre « catalogue ». */
+  border-inline: 1px solid rgb(32 32 31 / 0.07);
+}
+/* Conteneur large « galerie » — beaucoup de blanc, marges généreuses,
+   encadré par deux filets verticaux fins (esprit page de catalogue). */
+.container-gallery {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  max-width: 88rem;
+  border-inline: 1px solid rgb(32 32 31 / 0.07);
+}
+@media (min-width: 1024px) {
+  .container-gallery { padding-inline: 3rem; }
 }
 
-/* ─── Fonds de section ────────────────────────────────────────── */
-/* Hero clair : halo papier + spot doré diffus */
-.hero-stage {
-  background:
-    radial-gradient(ellipse 70% 55% at 50% -5%, var(--color-ivory) 0%, transparent 65%),
-    radial-gradient(ellipse 50% 45% at 80% 10%, rgb(227 175 59 / 0.16) 0%, transparent 60%),
-    linear-gradient(180deg, var(--color-paper) 0%, var(--color-bone) 100%);
+/* ─── Entrées (menu mobile / overlays) ────────────────────────── */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
-.hero-gradient {
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, var(--color-ivory) 0%, transparent 70%),
-    linear-gradient(180deg, var(--color-paper) 0%, var(--color-bone) 100%);
-}
-/* Section sombre principale = bleu nuit (« scène de nuit »).
-   Conserve le nom .section-noir : tous les composants hérités l'utilisent. */
-.section-noir {
-  background:
-    radial-gradient(ellipse 100% 80% at 50% -10%, var(--color-navy-800) 0%, var(--color-navy-950) 72%);
-  color: var(--color-cream-100);
-}
-/* Section bordeaux = rideau de scène (accent dramatique, à doser). */
-.section-wine {
-  background:
-    radial-gradient(ellipse 100% 85% at 50% -10%, var(--color-wine-700) 0%, var(--color-wine-950) 74%);
-  color: var(--color-cream-100);
+@keyframes slide-in-right {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
 }
 
-/* Cinematic hero : image plein cadre + voile bleu nuit + halo doré */
-.hero-cinema {
-  background-color: var(--color-navy-950);
-}
-.hero-cinema__overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 75% 85% at 22% 55%, rgb(11 16 32 / 0.82) 0%, rgb(11 16 32 / 0.48) 46%, transparent 76%),
-    linear-gradient(180deg, rgb(11 16 32 / 0.55) 0%, rgb(11 16 32 / 0.55) 50%, rgb(11 16 32 / 0.94) 100%),
-    radial-gradient(ellipse 65% 50% at 82% 18%, rgb(227 175 59 / 0.22) 0%, transparent 62%);
-}
-
-/* ─── Spotlight (faisceau de projecteur, fonds sombres) ───────── */
-.spotlight {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 45% 60% at 50% -10%, rgb(227 175 59 / 0.22) 0%, transparent 60%);
-}
-.spotlight--wine {
-  background:
-    radial-gradient(ellipse 45% 60% at 50% -10%, rgb(221 144 157 / 0.16) 0%, transparent 60%);
-}
-
-/* ─── Grain (texture) ─────────────────────────────────────────── */
-.grain {
-  position: relative;
-  isolation: isolate;
-}
-.grain::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  opacity: 0.06;
-  mix-blend-mode: overlay;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
-}
-.grain-strong::after {
-  opacity: 0.12;
-}
-
-/* ─── Aurora (halos doux animés, fonds clairs) ────────────────── */
-.aurora {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-.aurora::before,
-.aurora::after {
-  content: "";
-  position: absolute;
-  width: 60vw;
-  height: 60vw;
-  border-radius: 50%;
-  filter: blur(130px);
-  opacity: 0.5;
-  will-change: transform;
-}
-.aurora::before {
-  background: radial-gradient(circle at 30% 30%, var(--color-cream-300), transparent 60%);
-  top: -22vw;
-  left: -12vw;
-  animation: aurora-drift 24s ease-in-out infinite;
-}
-.aurora::after {
-  background: radial-gradient(circle at 70% 70%, rgb(227 175 59 / 0.4), transparent 62%);
-  bottom: -26vw;
-  right: -16vw;
-  animation: aurora-drift 30s ease-in-out infinite reverse;
-}
-@keyframes aurora-drift {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  50%      { transform: translate3d(4vw, 3vw, 0) scale(1.1); }
-}
-
-/* ─── Marquee (défilement infini) ─────────────────────────────── */
-.marquee {
-  overflow: hidden;
-  position: relative;
-}
-.marquee__track {
-  display: inline-flex;
-  gap: 3rem;
-  white-space: nowrap;
-  animation: marquee 42s linear infinite;
-  will-change: transform;
-}
-.marquee:hover .marquee__track {
-  animation-play-state: paused;
-}
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .marquee__track { animation: none; }
-}
-
-/* ─── Hairlines & ornements dorés ─────────────────────────────── */
-.hairline {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-gold-500), transparent);
-}
-.hairline-vertical {
-  width: 1px;
-  background: linear-gradient(180deg, transparent, var(--color-gold-500), transparent);
-}
-/* Ornement central : deux filets + losange (séparateur de section) */
-.ornament {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.85rem;
-  color: var(--color-gold-600);
-}
-.ornament::before,
-.ornament::after {
-  content: "";
-  height: 1px;
-  width: clamp(2rem, 8vw, 5rem);
-  background: linear-gradient(90deg, transparent, currentColor);
-}
-.ornament::after {
-  background: linear-gradient(90deg, currentColor, transparent);
-}
-
-/* ─── Numéros éditoriaux ──────────────────────────────────────── */
-.editorial-num {
-  font-family: var(--font-display);
-  font-weight: 400;
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  font-size: clamp(3rem, 7vw, 6rem);
-  background: linear-gradient(180deg, var(--color-gold-300) 0%, var(--color-gold-500) 55%, var(--color-gold-700) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.editorial-num--ink {
-  background: linear-gradient(180deg, var(--color-stone-500) 0%, var(--color-noir-900) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.section-number {
-  font-family: var(--font-display);
-  font-size: clamp(4rem, 12vw, 9rem);
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  background: linear-gradient(180deg, var(--color-gold-300) 0%, var(--color-gold-500) 60%, var(--color-gold-700) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-/* ─── Shimmer (accent sur petits éléments) ────────────────────── */
-.shimmer {
-  background: linear-gradient(
-    100deg,
-    transparent 0%, transparent 40%,
-    rgb(245 221 151 / 0.6) 50%,
-    transparent 60%, transparent 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 3.6s linear infinite;
-}
-@keyframes shimmer {
-  from { background-position: 200% 0; }
-  to   { background-position: -200% 0; }
-}
-
-/* ─── Glass ───────────────────────────────────────────────────── */
-.glass {
-  background: rgb(252 250 245 / 0.08);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-  border: 1px solid rgb(252 250 245 / 0.16);
-}
-.glass-dark {
-  background: rgb(11 16 32 / 0.5);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-  border: 1px solid rgb(252 250 245 / 0.1);
-}
-
-/* ─── Bordure dorée animée (conic) au hover ───────────────────── */
-.gradient-ring {
-  position: relative;
-  isolation: isolate;
-}
-.gradient-ring::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: conic-gradient(
-    from var(--ring-angle, 0deg),
-    transparent 0deg,
-    var(--color-gold-500) 60deg,
-    var(--color-gold-300) 120deg,
-    transparent 180deg,
-    transparent 360deg
-  );
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: -1;
-}
-@property --ring-angle {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-.gradient-ring:hover::before,
-.gradient-ring:focus-visible::before {
-  opacity: 1;
-  animation: ring-spin 6s linear infinite;
-}
-@keyframes ring-spin {
-  to { --ring-angle: 360deg; }
-}
-
-/* ─── Flottement léger ────────────────────────────────────────── */
-.float-soft {
-  animation: float-soft 6s ease-in-out infinite;
-  will-change: transform;
-}
-@keyframes float-soft {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-8px); }
-}
-
-/* ─── Pulse ring (autour des CTA dorés) ───────────────────────── */
-.pulse-ring { position: relative; }
-.pulse-ring::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  box-shadow: 0 0 0 0 rgb(227 175 59 / 0.5);
-  animation: pulse-ring 2.6s var(--ease-out-expo) infinite;
-  pointer-events: none;
-}
-@keyframes pulse-ring {
-  0%   { box-shadow: 0 0 0 0   rgb(227 175 59 / 0.5); }
-  70%  { box-shadow: 0 0 0 18px rgb(227 175 59 / 0); }
-  100% { box-shadow: 0 0 0 0   rgb(227 175 59 / 0); }
-}
-
-/* ─── Hover lift ──────────────────────────────────────────────── */
-.hover-lift {
-  transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
-}
-.hover-lift:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-elevated);
-}
-
-/* ─── Reveal mask (TextReveal) ────────────────────────────────── */
-@keyframes mask-sweep {
-  from { clip-path: inset(0 0 0 0); }
-  to   { clip-path: inset(0 100% 0 0); }
-}
-
-/* ─── Perspective (tilt cards) ────────────────────────────────── */
-.tilt-stage {
-  perspective: 1200px;
-  perspective-origin: center;
-}
-
-/* ─── Indicateur de scroll (hero) ─────────────────────────────── */
-.scroll-cue {
-  width: 22px;
-  height: 36px;
-  border-radius: 11px;
-  border: 1px solid rgb(32 32 31 / 0.35);
-  position: relative;
-}
-.scroll-cue--light {
-  border-color: rgb(252 250 245 / 0.4);
-}
-.scroll-cue::after {
-  content: "";
-  position: absolute;
-  top: 7px;
-  left: 50%;
-  width: 2px;
-  height: 6px;
-  border-radius: 1px;
-  background: var(--color-gold-600);
-  transform: translateX(-50%);
-  animation: scroll-cue 1.8s var(--ease-in-out-expo) infinite;
-}
-.scroll-cue--light::after {
-  background: var(--color-gold-400);
-}
-@keyframes scroll-cue {
-  0%   { opacity: 0; transform: translate(-50%, 0); }
-  50%  { opacity: 1; }
-  100% { opacity: 0; transform: translate(-50%, 14px); }
-}
-
-/* ─── Motifs de fond subtils ──────────────────────────────────── */
-.dot-pattern {
-  background-image: radial-gradient(rgb(28 28 27 / 0.1) 1px, transparent 1px);
-  background-size: 22px 22px;
-}
-.dot-pattern--light {
-  background-image: radial-gradient(rgb(252 250 245 / 0.16) 1px, transparent 1px);
-  background-size: 22px 22px;
-}
-.fil-grid {
-  background-image:
-    linear-gradient(rgb(227 175 59 / 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(227 175 59 / 0.06) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
-
-/* ─── Cadre photo premium ─────────────────────────────────────── */
-.frame-premium {
-  position: relative;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: var(--shadow-cinema);
-}
-.frame-premium::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  border: 1px solid rgb(252 250 245 / 0.14);
-  pointer-events: none;
-}
-
-/* ─── Scrollbar ───────────────────────────────────────────────── */
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-.no-scrollbar::-webkit-scrollbar { display: none; }
-
-html {
-  scrollbar-width: thin;
-  scrollbar-color: rgb(227 175 59 / 0.55) transparent;
-}
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: rgb(28 28 27 / 0.04); }
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--color-gold-400), var(--color-gold-700));
-  border-radius: 9999px;
-  border: 2px solid var(--color-paper);
-  background-clip: padding-box;
-}
-::-webkit-scrollbar-thumb:hover { background: var(--color-gold-500); background-clip: padding-box; }
-::-webkit-scrollbar-corner { background: transparent; }
-
-/* ─── Skeleton (placeholder image) ────────────────────────────── */
+/* ─── Skeleton (placeholder image, via SmartImage) ────────────── */
 .skeleton-shimmer {
   position: absolute;
   inset: 0;
@@ -695,32 +207,74 @@ html {
   to   { background-position: -200% 0; }
 }
 
-/* ─── Entrées (overlays / panneaux) ───────────────────────────── */
-@keyframes fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+/* ─── Sur-titre « cartel » doré + trait de projecteur ─────────── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold-700);
 }
-@keyframes slide-in-right {
-  from { transform: translateX(100%); }
-  to   { transform: translateX(0); }
+.eyebrow::before {
+  content: "";
+  width: 1.6rem;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-gold-600), transparent);
+}
+.eyebrow--light {
+  color: var(--color-gold-300);
+}
+.eyebrow--light::before {
+  background: linear-gradient(90deg, var(--color-gold-400), transparent);
 }
 
-/* Accordéon Radix — déploiement de la réponse FAQ */
-@keyframes acc-down {
-  from { height: 0; opacity: 0; }
-  to   { height: var(--radix-accordion-content-height); opacity: 1; }
+/* ─── Lift au survol (carte) — ombre dorée douce ──────────────── */
+.hover-lift {
+  transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
 }
-@keyframes acc-up {
-  from { height: var(--radix-accordion-content-height); opacity: 1; }
-  to   { height: 0; opacity: 0; }
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px -26px rgb(138 99 16 / 0.4);
 }
 
-/* Ken Burns — très léger zoom/dérive sur l'image hero */
-.ken-burns {
-  animation: ken-burns 24s ease-in-out infinite alternate;
-  will-change: transform;
+/* ─── Halo doré (projecteur) — fonds clairs, ponctuel ─────────── */
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(58% 50% at 80% 6%, rgb(227 175 59 / 0.16) 0%, transparent 62%);
 }
-@keyframes ken-burns {
-  from { transform: scale(1.04) translate3d(0, 0, 0); }
-  to   { transform: scale(1.12) translate3d(-1.5%, -1%, 0); }
+.hero-glow--center {
+  background: radial-gradient(46% 60% at 50% -6%, rgb(227 175 59 / 0.14) 0%, transparent 64%);
 }
+
+/* ─── Grain papier (texture chaude, surcouche fixe très discrète) ─ */
+.paper-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+  background-size: 200px 200px;
+}
+
+/* ─── Scrollbar (neutre, cohérente avec la DA galerie) ────────── */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-stone-400) transparent;
+}
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: rgb(32 32 31 / 0.04); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-stone-400);
+  border: 2px solid var(--color-ivory);
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-stone-500); background-clip: padding-box; }
+::-webkit-scrollbar-corner { background: transparent; }

@@ -6,6 +6,7 @@ type SectionHeadingProps = {
   title: ReactNode;
   intro?: ReactNode;
   align?: "left" | "center";
+  /** Variante claire pour fond sombre (rare dans la DA galerie). */
   light?: boolean;
   as?: "h1" | "h2";
   className?: string;
@@ -13,8 +14,9 @@ type SectionHeadingProps = {
 };
 
 /**
- * Bloc de titre de section réutilisable : eyebrow + titre display + intro.
- * `light` pour les sections sombres.
+ * Bloc de titre « galerie » : sur-titre en capitales espacées (cartel),
+ * grand titre display en graisse normale, intro discrète. Angles francs,
+ * aucun ornement — c'est la typographie et le blanc qui structurent.
  */
 export function SectionHeading({
   eyebrow,
@@ -30,27 +32,17 @@ export function SectionHeading({
   const centered = align === "center";
 
   return (
-    <div
-      className={cn(
-        centered ? "mx-auto max-w-2xl text-center" : "max-w-2xl",
-        className,
-      )}
-    >
+    <div className={cn(centered ? "mx-auto max-w-2xl text-center" : "max-w-2xl", className)}>
       {eyebrow ? (
-        <p
-          className={cn(
-            "eyebrow",
-            light && "eyebrow--light",
-            centered && "eyebrow--center",
-          )}
-        >
-          {eyebrow}
-        </p>
+        <p className={cn("eyebrow", light && "eyebrow--light")}>{eyebrow}</p>
       ) : null}
       <Tag
         className={cn(
-          as === "h1" ? "fluid-h1" : "fluid-h2",
-          eyebrow ? "mt-4" : "",
+          "font-display font-normal leading-tight",
+          as === "h1"
+            ? "text-[clamp(2.4rem,5vw,4.25rem)]"
+            : "text-[clamp(1.9rem,4vw,3.4rem)]",
+          eyebrow ? "mt-5" : "",
           light ? "text-ivory" : "text-ink",
           titleClassName,
         )}
@@ -60,8 +52,8 @@ export function SectionHeading({
       {intro ? (
         <p
           className={cn(
-            "fluid-lead mt-5",
-            light ? "text-cream-100/80" : "text-stone-500",
+            "mt-6 text-base leading-relaxed sm:text-lg",
+            light ? "text-ivory/70" : "text-stone-600",
           )}
         >
           {intro}

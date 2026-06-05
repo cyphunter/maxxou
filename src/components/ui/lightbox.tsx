@@ -99,7 +99,7 @@ export function Lightbox({ items, index, onClose, onChange }: LightboxProps) {
             type="button"
             onClick={onClose}
             aria-label="Fermer la visionneuse"
-            className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-ivory/10 text-ivory ring-1 ring-ivory/30 backdrop-blur transition hover:bg-gold-500 hover:text-noir-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 sm:right-6 sm:top-6"
+            className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-none border border-ivory/30 bg-ivory/10 text-ivory backdrop-blur transition hover:bg-ivory hover:text-noir-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 sm:right-6 sm:top-6"
           >
             <X size={20} aria-hidden />
           </button>
@@ -110,7 +110,7 @@ export function Lightbox({ items, index, onClose, onChange }: LightboxProps) {
                 type="button"
                 onClick={goPrev}
                 aria-label="Image précédente"
-                className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-ivory/10 text-ivory ring-1 ring-ivory/30 backdrop-blur transition hover:bg-gold-500 hover:text-noir-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 sm:left-6 sm:h-12 sm:w-12"
+                className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-none border border-ivory/30 bg-ivory/10 text-ivory backdrop-blur transition hover:bg-ivory hover:text-noir-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 sm:left-6 sm:h-12 sm:w-12"
               >
                 <ChevronLeft size={22} aria-hidden />
               </button>
@@ -118,7 +118,7 @@ export function Lightbox({ items, index, onClose, onChange }: LightboxProps) {
                 type="button"
                 onClick={goNext}
                 aria-label="Image suivante"
-                className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-ivory/10 text-ivory ring-1 ring-ivory/30 backdrop-blur transition hover:bg-gold-500 hover:text-noir-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 sm:right-6 sm:h-12 sm:w-12"
+                className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-none border border-ivory/30 bg-ivory/10 text-ivory backdrop-blur transition hover:bg-ivory hover:text-noir-950 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 sm:right-6 sm:h-12 sm:w-12"
               >
                 <ChevronRight size={22} aria-hidden />
               </button>
@@ -142,7 +142,7 @@ export function Lightbox({ items, index, onClose, onChange }: LightboxProps) {
                 height={current.height}
                 priority
                 sizes="92vw"
-                className="h-auto max-h-[80vh] w-auto max-w-[92vw] rounded-xl object-contain"
+                className="h-auto max-h-[80vh] w-auto max-w-[92vw] rounded-none object-contain"
               />
             </div>
             {current.caption || total > 1 ? (

@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import type { ItemList, WithContext } from "schema-dts";
 
 import { buildMetadata } from "@/lib/seo";
@@ -10,10 +8,10 @@ import { representations } from "@/data/dates";
 import { Header } from "@/components/public/header";
 import { Footer } from "@/components/public/footer";
 import { PageHero } from "@/components/public/page-hero";
-import { SectionHeading } from "@/components/public/section-heading";
 import { DatesList } from "@/components/public/dates-list";
 import { NewsletterSignup } from "@/components/public/newsletter-signup";
 import { CtaBandeau } from "@/components/public/cta-bandeau";
+import { UnderlineLink } from "@/components/ui/gallery";
 
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -72,55 +70,45 @@ export default function DatesPage() {
           title={
             <>
               Prochaines{" "}
-              <span className="italic-display gradient-ink">représentations</span>.
+              <span className="italic-display text-gold-700">représentations</span>.
             </>
           }
           intro="Lyon, Paris et en tournée. Réservez votre soirée — la salle se remplit vite."
         />
 
         {/* ───────── Calendrier complet */}
-        <section className="relative bg-paper py-24 lg:py-32">
-          <div className="container-narrow">
-            <ScrollReveal>
-              <DatesList />
-            </ScrollReveal>
+        <section className="border-b border-ink/10 bg-ivory">
+          <div className="container-gallery py-24 lg:py-32">
+            <DatesList />
 
             <ScrollReveal delay={0.05}>
-              <p className="mt-10 text-center text-sm text-stone-600">
+              <p className="mt-12 text-sm leading-relaxed text-stone-600">
                 Une date complète ? Une envie de nous faire venir dans votre ville ?{" "}
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center gap-1 font-medium text-gold-700 transition-colors hover:text-gold-800"
-                >
+                <UnderlineLink href="/contact" className="ml-1 text-ink">
                   Contactez-nous
-                  <ArrowUpRight
-                    size={14}
-                    aria-hidden
-                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  />
-                </Link>
+                </UnderlineLink>
               </p>
             </ScrollReveal>
           </div>
         </section>
 
-        {/* ───────── Newsletter (dark) */}
-        <section className="section-noir grain relative overflow-hidden py-20 lg:py-28">
-          <div aria-hidden className="aurora opacity-30" />
-          <div className="container-narrow relative">
-            <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-              <ScrollReveal className="lg:col-span-6">
-                <SectionHeading
-                  light
-                  eyebrow="Newsletter"
-                  title={siteConfig.newsletter.title}
-                  intro={siteConfig.newsletter.subtitle}
-                />
-              </ScrollReveal>
-              <ScrollReveal delay={0.1} className="lg:col-span-6">
-                <NewsletterSignup tone="dark" />
-              </ScrollReveal>
-            </div>
+        {/* ───────── Newsletter */}
+        <section className="border-b border-ink/10 bg-paper">
+          <div className="container-gallery grid grid-cols-1 gap-12 py-24 lg:grid-cols-12 lg:items-center lg:py-32">
+            <ScrollReveal className="lg:col-span-5">
+              <p className="eyebrow">
+                Newsletter
+              </p>
+              <h2 className="mt-5 font-display text-[clamp(1.9rem,4vw,3.2rem)] font-normal leading-tight text-ink">
+                {siteConfig.newsletter.title}
+              </h2>
+              <p className="mt-6 max-w-md text-base leading-relaxed text-stone-600">
+                {siteConfig.newsletter.subtitle}
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1} className="lg:col-span-6 lg:col-start-7">
+              <NewsletterSignup tone="light" />
+            </ScrollReveal>
           </div>
         </section>
 

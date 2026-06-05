@@ -4,7 +4,6 @@ import { siteConfig, canonicalUrl } from "@/lib/site-config";
 import { JsonLd } from "@/components/seo/json-ld";
 import { ReducedMotionProvider } from "@/components/motion/reduced-motion";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
-import { CursorSpotlight } from "@/components/motion/cursor-spotlight";
 import { BackToTop } from "@/components/public/back-to-top";
 import type { Person, WebSite, WithContext } from "schema-dts";
 import "./globals.css";
@@ -82,10 +81,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f6f1e9" },
-    { media: "(prefers-color-scheme: dark)", color: "#10182f" },
-  ],
+  themeColor: "#fcfaf5",
   width: "device-width",
   initialScale: 1,
 };
@@ -141,18 +137,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang={siteConfig.language}
       className={`${fontBody.variable} ${fontDisplay.variable}`}
     >
-      <body className="min-h-screen bg-paper text-ink antialiased">
+      <body className="min-h-screen bg-ivory text-ink antialiased">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded focus:bg-navy-900 focus:px-4 focus:py-2 focus:text-ivory"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-ink focus:px-4 focus:py-2 focus:text-ivory"
         >
           Aller au contenu principal
         </a>
+        <div aria-hidden className="paper-grain" />
+        <span
+          aria-hidden
+          className="pointer-events-none fixed right-3 top-1/2 z-10 hidden -translate-y-1/2 rotate-180 text-[0.6rem] uppercase tracking-[0.34em] text-stone-400 [writing-mode:vertical-rl] xl:block"
+        >
+          {siteConfig.name} — {siteConfig.contact.city} · {siteConfig.contact.secondaryCity}
+        </span>
         <JsonLd schema={personSchema} />
         <JsonLd schema={websiteSchema} />
         <ReducedMotionProvider>
           <ScrollProgress />
-          <CursorSpotlight />
           {children}
           <BackToTop />
         </ReducedMotionProvider>

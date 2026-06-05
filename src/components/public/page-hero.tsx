@@ -3,8 +3,9 @@ import { SectionHeading } from "./section-heading";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 
 /**
- * En-tête de page interne : padding haut pour dégager le header fixe,
- * fond clair dégradé + halo. Le titre est rendu en <h1>.
+ * En-tête de page interne, style galerie : beaucoup de blanc, filet de
+ * séparation en bas, titre rendu en <h1>. Le header étant `sticky`, aucun
+ * padding de compensation n'est nécessaire.
  */
 export function PageHero({
   eyebrow,
@@ -18,9 +19,8 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="hero-gradient relative overflow-hidden pb-16 pt-36 lg:pb-20 lg:pt-44">
-      <div aria-hidden className="aurora opacity-50" />
-      <div className="container-soft relative">
+    <section className="border-b border-ink/10 bg-ivory">
+      <div className="container-gallery py-20 lg:py-28">
         <ScrollReveal>
           <SectionHeading as="h1" eyebrow={eyebrow} title={title} intro={intro} />
         </ScrollReveal>

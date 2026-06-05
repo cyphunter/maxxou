@@ -1,34 +1,33 @@
-import { Telescope, Brain, Feather, Smile, Puzzle, Sparkles, type LucideIcon } from "lucide-react";
 import { benefices } from "@/data/benefices";
 import { StaggerReveal, StaggerItem } from "@/components/motion/stagger-reveal";
 
-const ICONS: Record<string, LucideIcon> = {
-  telescope: Telescope,
-  brain: Brain,
-  feather: Feather,
-  smile: Smile,
-  puzzle: Puzzle,
-};
-
+/**
+ * Bénéfices du spectacle, style galerie : grille numérotée, filets 1px,
+ * aucun aplat ni icône — la typographie et le blanc structurent.
+ */
 export function BeneficesGrid() {
   return (
-    <StaggerReveal className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {benefices.map((b) => {
-        const Icon = ICONS[b.icon] ?? Sparkles;
-        return (
-          <StaggerItem
-            key={b.title}
-            as="article"
-            className="hover-lift flex h-full flex-col rounded-2xl bg-ivory p-6 shadow-soft ring-1 ring-noir-900/10"
-          >
-            <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-gold-500/15 text-gold-700 ring-1 ring-gold-500/25">
-              <Icon size={20} aria-hidden />
+    <StaggerReveal
+      className="grid grid-cols-1 border-t border-ink/10 sm:grid-cols-2 lg:grid-cols-3"
+      stagger={0.06}
+    >
+      {benefices.map((b, i) => (
+        <StaggerItem
+          key={b.title}
+          as="article"
+          className="group border-b border-ink/10 px-1 py-10 transition-colors hover:bg-ivory sm:px-6 lg:[&:nth-child(3n+2)]:border-x lg:[&:nth-child(3n+2)]:border-x-ink/10"
+        >
+          <div className="flex items-baseline gap-4">
+            <span className="font-display text-sm tabular-nums text-gold-700">
+              {String(i + 1).padStart(2, "0")}
             </span>
-            <h3 className="mt-4 font-display text-xl text-ink">{b.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-stone-600">{b.description}</p>
-          </StaggerItem>
-        );
-      })}
+            <div>
+              <h3 className="font-display text-xl leading-tight text-ink">{b.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-stone-600">{b.description}</p>
+            </div>
+          </div>
+        </StaggerItem>
+      ))}
     </StaggerReveal>
   );
 }
