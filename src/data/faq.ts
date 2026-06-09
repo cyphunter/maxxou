@@ -12,7 +12,7 @@ export const faq: readonly FaqEntry[] = [
   {
     question: "C'est quoi, la « thérapie des parties » ?",
     answer:
-      "C'est une approche de la connaissance de soi selon laquelle nous sommes habités par plusieurs « parts » — le critique, l'anxieux, l'enfant, le protecteur… Plutôt que de les combattre, on apprend à les écouter. Maxxou s'en empare avec humour : aucun prérequis pour comprendre, tout passe par le rire.",
+      "C'est une approche de la connaissance de soi selon laquelle nous sommes habités par plusieurs « parts » — le critique, l'anxieux, le perfectionniste, l'enfant… Plutôt que de les combattre, on apprend à les écouter. Maxxou s'en empare avec humour : aucun prérequis pour comprendre, tout passe par le rire.",
   },
   {
     question: "C'est un spectacle ou une séance de thérapie ?",
@@ -32,7 +32,7 @@ export const faq: readonly FaqEntry[] = [
   {
     question: "À partir de quel âge ?",
     answer:
-      "Tout public, à partir de 14 ans environ. C'est bienveillant et sans vulgarité gratuite — pensé pour qu'on puisse y venir en famille ou entre amis.",
+      "Le spectacle s'adresse à un public adolescent et adulte. C'est drôle, sincère et un brin déjanté : certaines thématiques et expressions peuvent ne pas convenir aux jeunes enfants.",
   },
   {
     question: "Comment réserver ?",
@@ -45,8 +45,8 @@ export const faq: readonly FaqEntry[] = [
       "Oui : conférences gesticulées, ateliers d'improvisation et formats sur-mesure. Détaillez votre projet via le formulaire de contact, on construit la formule adaptée.",
   },
   {
-    question: "Jouez-vous ailleurs qu'à Lyon et Paris ?",
+    question: "Jouez-vous ailleurs qu'à Lyon ?",
     answer:
-      "Lyon et Paris sont les villes d'attache, mais le spectacle se déplace partout en France et au-delà. Une salle, un festival, une envie ? Contactez-nous pour une date dans votre ville.",
+      "Lyon et sa région sont le point d'attache (Annecy, Tassin-la-Demi-Lune…), mais le spectacle se déplace partout en France et au-delà. Une salle, un festival, une envie ? Contactez-nous pour une date dans votre ville.",
   },
 ];

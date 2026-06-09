@@ -136,7 +136,7 @@ export default function HomePage() {
                   La collection
                 </p>
                 <h2 className="mt-5 max-w-2xl font-display text-[clamp(1.9rem,4vw,3.4rem)] font-normal leading-tight text-ink">
-                  Huit parts de nous, <span className="italic-display text-gold-700">exposées</span>{" "}
+                  Quatre parts de nous, <span className="italic-display text-gold-700">exposées</span>{" "}
                   une à une.
                 </h2>
                 <p className="mt-6 max-w-xl text-base leading-relaxed text-stone-600">

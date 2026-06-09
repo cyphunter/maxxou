@@ -82,10 +82,6 @@ const personnages = [
   { slug: "l-anxieux", name: "L'Anxieux", accent: "navy" },
   { slug: "le-perfectionniste", name: "Le Perfectionniste", accent: "gold" },
   { slug: "l-enfant", name: "L'Enfant", accent: "gold" },
-  { slug: "le-protecteur", name: "Le Protecteur", accent: "navy" },
-  { slug: "le-saboteur", name: "Le Saboteur", accent: "wine" },
-  { slug: "le-reveur", name: "Le Rêveur", accent: "navy" },
-  { slug: "le-chef-d-orchestre", name: "Le Chef d'orchestre", accent: "gold" },
 ];
 
 // ─── Poster vidéo (toujours placeholder tant que la vraie vidéo n'est pas prête) ─

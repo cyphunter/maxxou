@@ -7,7 +7,7 @@
 
 - **Client** : Maxxou Officiel
 - **Activité** : Humoriste & improvisateur — seul-en-scène mêlant humour, improvisation, psychanalyse et **thérapie des parties** (chaque personnage = une « part » de nous)
-- **Zone** : Lyon & Paris, en tournée
+- **Zone** : Lyon & sa région (Annecy, Tassin-la-Demi-Lune…), en tournée
 - **Site** : `https://maxxou-officiel.fr` (domaine PLACEHOLDER à confirmer)
 - **SITE_ID** : `maxxou`
 - **Type** : **Showcase pur** — pas de DB / R2 / KV. Contact + newsletter via Server Action + Resend.

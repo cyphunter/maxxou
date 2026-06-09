@@ -25,7 +25,7 @@ export const temoignages: readonly Temoignage[] = [
     quote:
       "J'ai reconnu mon « critique intérieur » dès la deuxième minute. J'ai ri… et un peu rougi. Bluffant de justesse.",
     author: "Thomas D.",
-    role: "Spectateur, Paris",
+    role: "Spectateur, Annecy",
   },
   {
     id: "t3",

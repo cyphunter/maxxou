@@ -19,7 +19,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = buildMetadata({
   title: "Dates & réservation",
   description:
-    "Toutes les dates du spectacle de Maxxou Officiel à Lyon, Paris et en tournée. Réservez votre place.",
+    "Toutes les dates du spectacle de Maxxou Officiel à Lyon et dans sa région. Réservez votre place.",
   path: "/dates",
 });
 
@@ -73,7 +73,7 @@ export default function DatesPage() {
               <span className="italic-display text-gold-700">représentations</span>.
             </>
           }
-          intro="Lyon, Paris et en tournée. Réservez votre soirée — la salle se remplit vite."
+          intro="Retrouvez Maxxou sur scène à Lyon et dans sa région pour un spectacle drôle, sincère et déjanté qui explore les différentes voix qui nous habitent. Réservez votre soirée — les salles se remplissent vite."
         />
 
         {/* ───────── Calendrier complet */}
@@ -82,7 +82,11 @@ export default function DatesPage() {
             <DatesList />
 
             <ScrollReveal delay={0.05}>
-              <p className="mt-12 text-sm leading-relaxed text-stone-600">
+              <p className="mt-12 text-[0.82rem] uppercase tracking-[0.14em] text-stone-500">
+                Public adolescent et adulte — certaines thématiques et expressions peuvent ne pas
+                convenir aux jeunes enfants.
+              </p>
+              <p className="mt-6 text-sm leading-relaxed text-stone-600">
                 Une date complète ? Une envie de nous faire venir dans votre ville ?{" "}
                 <UnderlineLink href="/contact" className="ml-1 text-ink">
                   Contactez-nous

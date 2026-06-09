@@ -26,7 +26,7 @@ import type { TheaterEvent, WithContext } from "schema-dts";
 export const metadata: Metadata = buildMetadata({
   title: "Le spectacle",
   description:
-    "Le seul-en-scène de Maxxou : humour, improvisation et thérapie des parties. Chaque personnage intérieur monte sur scène — à Lyon, Paris et en tournée.",
+    "Le seul-en-scène de Maxxou : humour, improvisation et thérapie des parties. Chaque personnage intérieur monte sur scène — à Lyon et dans sa région.",
   path: "/spectacle",
 });
 
@@ -60,8 +60,8 @@ const faitsCles = [
   {
     icon: Users,
     label: "Public",
-    value: "Tout public, dès 14 ans",
-    detail: "Sans vulgarité gratuite, pensé pour venir en famille ou entre amis.",
+    value: "Ados & adultes",
+    detail: "Certaines thématiques et expressions peuvent ne pas convenir aux jeunes enfants.",
   },
   {
     icon: Sparkles,

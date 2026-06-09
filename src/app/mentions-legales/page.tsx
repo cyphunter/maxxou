@@ -33,7 +33,7 @@ export default function MentionsLegalesPage() {
                 <br />
                 SIRET : {legal.siret} <span className="text-stone-400">(à confirmer)</span>
                 <br />
-                {contact.city} &amp; {contact.secondaryCity}, {contact.countryName}
+                {contact.city} et sa région, {contact.countryName}
                 <br />
                 Email :{" "}
                 <a

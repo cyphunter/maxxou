@@ -21,7 +21,7 @@ export const siteConfig = {
   baseline: "Seul-en-scène — humour & thérapie des parties",
   tagline: "Rire de ses parts pour mieux vivre avec elles.",
   description:
-    "Maxxou Officiel, seul-en-scène original mêlant humour, improvisation, psychanalyse et thérapie des parties. Chaque personnage incarne une facette de nous-mêmes — pour rire de ses mécanismes intérieurs avec bienveillance. À Lyon, Paris et en tournée.",
+    "Maxxou Officiel, seul-en-scène original mêlant humour, improvisation, psychanalyse et thérapie des parties. Chaque personnage incarne une facette de nous-mêmes — pour rire de ses mécanismes intérieurs avec bienveillance. À Lyon et dans sa région.",
 
   // ─── Slogans (rotation possible dans le hero) ─────────────────────
   slogans: [
@@ -41,15 +41,14 @@ export const siteConfig = {
     phoneDisplay: "06 00 00 00 00", // PLACEHOLDER
     email: "contact@maxxou-officiel.fr", // PLACEHOLDER
     city: "Lyon",
-    secondaryCity: "Paris",
     postalCode: "69000",
     region: "Auvergne-Rhône-Alpes",
     department: "Rhône",
     country: "FR",
     countryName: "France",
     geo: { latitude: 45.764, longitude: 4.8357 },
-    primaryServiceArea: "Lyon & Paris",
-    serviceAreaLabel: "Lyon · Paris · en tournée",
+    primaryServiceArea: "Lyon & sa région",
+    serviceAreaLabel: "Lyon · Auvergne-Rhône-Alpes · en tournée",
     availabilityLabel: "Prochaines dates ouvertes à la réservation",
   },
 
@@ -85,6 +84,7 @@ export const siteConfig = {
     { label: "Le spectacle", href: "/spectacle" },
     { label: "Les personnages", href: "/personnages" },
     { label: "Dates", href: "/dates" },
+    { label: "Comedy Club", href: "/banane-comedy-club" },
     { label: "À propos", href: "/a-propos" },
     { label: "Contact", href: "/contact" },
   ],
@@ -122,15 +122,17 @@ export const siteConfig = {
       "seul-en-scène",
       "one-man-show",
       "spectacle d'humour Lyon",
-      "spectacle d'humour Paris",
+      "humoriste Lyon",
+      "stand-up Lyon",
       "improvisation théâtrale",
       "humour et développement personnel",
       "thérapie des parties",
       "humour thérapeutique",
       "psychanalyse humour",
       "spectacle humour bienveillant",
+      "Banane Comedy Club",
       "Lyon",
-      "Paris",
+      "Auvergne-Rhône-Alpes",
     ] as readonly string[],
     brandColors: {
       primary: "#10182f",

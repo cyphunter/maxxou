@@ -149,7 +149,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           aria-hidden
           className="pointer-events-none fixed right-3 top-1/2 z-10 hidden -translate-y-1/2 rotate-180 text-[0.6rem] uppercase tracking-[0.34em] text-stone-400 [writing-mode:vertical-rl] xl:block"
         >
-          {siteConfig.name} — {siteConfig.contact.city} · {siteConfig.contact.secondaryCity}
+          {siteConfig.name} — {siteConfig.contact.city} · {siteConfig.contact.region}
         </span>
         <JsonLd schema={personSchema} />
         <JsonLd schema={websiteSchema} />

@@ -27,7 +27,7 @@ export const services: readonly Service[] = [
       "Un seul-en-scène mêlant humour, improvisation et thérapie des parties. Maxxou incarne tour à tour le Critique, l'Anxieux, le Perfectionniste… et nous fait rire de nos mécanismes les plus intimes. Idéal pour les salles, théâtres, cafés-théâtres et festivals.",
     icon: "drama",
     points: [
-      "Format ~75 min, tout public (dès 14 ans)",
+      "Format ~75 min, public ado & adulte",
       "Adaptable du café-théâtre à la grande salle",
       "Une part d'improvisation à chaque représentation",
       "Fiche technique légère, autonomie possible",

@@ -69,13 +69,26 @@ export function DatesList({
           >
             {/* Date */}
             <div className="flex items-baseline gap-3 sm:col-span-3">
-              <span className="font-display text-3xl leading-none tabular-nums text-ink">
-                {day}
-              </span>
-              <span className="text-sm uppercase tracking-[0.14em] text-stone-500">
-                {month} {year}
-                {r.time ? ` · ${r.time}` : ""}
-              </span>
+              {r.dateLabel ? (
+                <span className="font-display text-xl leading-tight text-ink">
+                  {r.dateLabel}
+                  {r.time ? (
+                    <span className="ml-2 text-sm uppercase tracking-[0.14em] text-stone-500">
+                      · {r.time}
+                    </span>
+                  ) : null}
+                </span>
+              ) : (
+                <>
+                  <span className="font-display text-3xl leading-none tabular-nums text-ink">
+                    {day}
+                  </span>
+                  <span className="text-sm uppercase tracking-[0.14em] text-stone-500">
+                    {month} {year}
+                    {r.time ? ` · ${r.time}` : ""}
+                  </span>
+                </>
+              )}
             </div>
 
             {/* Lieu */}

@@ -1,12 +1,17 @@
 /**
  * Calendrier des représentations.
  *
- * ⚠️ DATES PLACEHOLDER — à remplacer par les vraies dates de tournée.
- * `date` au format ISO (YYYY-MM-DD). `status` :
- *   - "open"    : billetterie ouverte (afficher le bouton Réserver)
- *   - "soon"    : date annoncée, billetterie bientôt ouverte
+ * `date` au format ISO (YYYY-MM-DD), utilisé pour le tri chronologique et le
+ * balisage JSON-LD. Pour une date encore imprécise (« Été 2026 », « à venir »),
+ * renseigner `dateLabel` : il remplace l'affichage jour/mois et la `date` ISO
+ * ne sert alors qu'au classement (mettre une date approchée du créneau).
+ *
+ * `status` :
+ *   - "open"    : réservation ouverte (bouton Réserver → billetterie ou contact)
+ *   - "soon"    : date en préparation, billetterie bientôt ouverte
  *   - "soldout" : complet
  *   - "past"    : représentation passée (archives)
+ *
  * `ticketUrl` : lien billetterie (HelloAsso, BilletWeb, salle…). Vide → le
  * bouton renvoie vers la page Contact.
  */
@@ -15,8 +20,10 @@ export type DateStatus = "open" | "soon" | "soldout" | "past";
 
 export type Representation = {
   id: string;
-  /** Date ISO : "2026-10-04" */
+  /** Date ISO : "2026-10-04". Sert au tri et au JSON-LD. */
   date: string;
+  /** Libellé libre quand la date est imprécise (ex: "Été 2026", "Date à venir"). */
+  dateLabel?: string;
   /** Horaire affiché, ex: "20h30". */
   time?: string;
   city: string;
@@ -28,64 +35,84 @@ export type Representation = {
 };
 
 export const representations: readonly Representation[] = [
+  // ─── Dates confirmées ──────────────────────────────────────────────
   {
     id: "d1",
-    date: "2026-09-26",
-    time: "20h30",
+    date: "2026-06-28",
+    time: "17h00",
     city: "Lyon",
-    venue: "Le Complexe du Rire",
-    address: "7 rue des Capucins, 69001 Lyon",
+    venue: "Le Bichon",
+    address: "9 rue Neuve, 69001 Lyon",
     status: "open",
     ticketUrl: "",
-    note: "Première de la saison",
   },
   {
     id: "d2",
-    date: "2026-10-10",
-    time: "20h00",
+    date: "2026-07-05",
+    time: "17h00",
     city: "Lyon",
-    venue: "L'Improvidence",
-    address: "27 rue de l'Arbre Sec, 69001 Lyon",
+    venue: "Le Bichon",
+    address: "9 rue Neuve, 69001 Lyon",
     status: "open",
     ticketUrl: "",
   },
   {
     id: "d3",
-    date: "2026-10-24",
-    time: "21h00",
-    city: "Paris",
-    venue: "Le Point Virgule",
-    address: "7 rue Sainte-Croix de la Bretonnerie, 75004 Paris",
+    date: "2026-08-30",
+    time: "17h00",
+    city: "Lyon",
+    venue: "Le Bichon",
+    address: "9 rue Neuve, 69001 Lyon",
     status: "open",
     ticketUrl: "",
   },
   {
     id: "d4",
-    date: "2026-11-14",
-    time: "20h30",
-    city: "Paris",
-    venue: "La Nouvelle Seine",
-    address: "Port de la Tournelle, 75005 Paris",
-    status: "soldout",
+    date: "2026-10-01",
+    time: "19h30",
+    city: "Lyon",
+    venue: "Wojo Hôtel-Dieu",
+    address: "4 place Amédée Bonnet, 69002 Lyon",
+    status: "open",
     ticketUrl: "",
-    note: "Complet — liste d'attente possible",
   },
+
+  // ─── Dates en préparation (créneaux à confirmer) ───────────────────
   {
     id: "d5",
-    date: "2026-11-28",
-    time: "20h30",
-    city: "Villeurbanne",
-    venue: "Le Rideau Rouge",
+    date: "2026-07-01",
+    dateLabel: "Été 2026",
+    city: "Annecy",
+    venue: "Date à venir",
     status: "soon",
     ticketUrl: "",
-    note: "Billetterie bientôt ouverte",
   },
   {
     id: "d6",
-    date: "2026-12-12",
-    time: "20h00",
-    city: "Paris",
-    venue: "Théâtre BO Saint-Martin",
+    date: "2026-07-02",
+    dateLabel: "Été 2026",
+    city: "Annecy",
+    venue: "Date à venir",
+    status: "soon",
+    ticketUrl: "",
+  },
+  {
+    id: "d7",
+    date: "2026-09-15",
+    dateLabel: "Septembre 2026",
+    city: "Tassin-la-Demi-Lune",
+    venue: "Antonio & Marco",
+    address: "76 avenue Charles de Gaulle, 69160 Tassin-la-Demi-Lune",
+    status: "soon",
+    ticketUrl: "",
+  },
+  {
+    id: "d8",
+    date: "2026-12-31",
+    dateLabel: "Date à venir",
+    city: "Lyon",
+    venue: "Le FeuDoux",
+    address: "180 rue de Créqui, 69003 Lyon",
     status: "soon",
     ticketUrl: "",
   },

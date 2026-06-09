@@ -1,6 +1,6 @@
 # Maxxou Officiel
 
-Site vitrine de **Maxxou Officiel** — humoriste & improvisateur, seul-en-scène mêlant humour, improvisation et thérapie des parties (Lyon, Paris & en tournée).
+Site vitrine de **Maxxou Officiel** — humoriste & improvisateur, seul-en-scène mêlant humour, improvisation et thérapie des parties (Lyon & sa région, en tournée).
 
 Next.js 16 (App Router) + React 19 + TypeScript strict, déployé sur **Cloudflare Workers** via `@opennextjs/cloudflare`. **Showcase pur** : pas de base de données — le formulaire de contact et l'inscription newsletter passent par une Server Action + Resend.
 

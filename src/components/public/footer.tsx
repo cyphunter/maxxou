@@ -82,8 +82,7 @@ export function Footer() {
         {/* Bandeau légal */}
         <div className="flex flex-col gap-4 pt-8 text-[0.78rem] text-stone-500 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {year} {siteConfig.legalName} — {siteConfig.role}, {contact.city} &amp;{" "}
-            {contact.secondaryCity}.
+            © {year} {siteConfig.legalName} — {siteConfig.role}, {contact.city} et sa région.
           </p>
           <nav aria-label="Liens légaux" className="flex flex-wrap gap-x-6 gap-y-2">
             {siteConfig.footerNavigation.map((item) => (

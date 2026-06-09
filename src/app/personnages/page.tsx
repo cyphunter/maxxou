@@ -19,7 +19,7 @@ import type { ItemList, WithContext } from "schema-dts";
 export const metadata: Metadata = buildMetadata({
   title: "Les personnages",
   description:
-    "Le Critique, l'Anxieux, le Perfectionniste, le Rêveur… La thérapie des parties incarnée sur scène : chaque personnage est une facette de nous-mêmes, à reconnaître et à regarder avec tendresse.",
+    "Le Critique, l'Anxieux, le Perfectionniste, l'Enfant : la thérapie des parties incarnée sur scène. Chaque personnage est une facette de nous-mêmes, à reconnaître et à regarder avec tendresse.",
   path: "/personnages",
 });
 
@@ -103,7 +103,7 @@ export default function PersonnagesPage() {
                 <span className="italic-display text-gold-700">toute la bande</span>.
               </h2>
               <p className="mt-6 text-base leading-relaxed text-stone-600">
-                Du Critique au Chef d&apos;orchestre : chacun a son rôle, sa réplique et sa façon
+                Du Critique à l&apos;Enfant : chacun a son rôle, sa réplique et sa façon
                 bien à lui de prendre toute la place.
               </p>
             </ScrollReveal>
